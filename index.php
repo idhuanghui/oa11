@@ -53,4 +53,3 @@ $_SESSION['adminlogin'] = 1;
 //载入框架核心文件
 require SPAPP_PATH.'Core/ThinkPHP.php';
 
-echo '直接在线上修改,哇卡卡卡';
