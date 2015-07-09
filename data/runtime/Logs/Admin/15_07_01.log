@@ -1,0 +1,99 @@
+[ 2015-07-01T09:00:32+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0310s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435712432',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0010s ]
+
+[ 2015-07-01T10:11:18+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:11:18+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:18:06+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:18:42+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:18:44+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:23:13+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:23:52+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:23:54+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:24:45+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:25:17+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:25:19+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:36:30+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:37:10+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-01T10:56:20+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'acc.reg_time' in 'field list'
+
+[ 2015-07-01T10:57:02+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ac.user_id' in 'field list'
+
+[ 2015-07-01T15:16:21+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0020s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435734981',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0000s ]
+
+[ 2015-07-01T16:23:44+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EGT' in 'where clause'
+
+[ 2015-07-01T16:23:56+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'EGT' in 'where clause'
+
+[ 2015-07-01T16:27:07+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_achievements' doesn't exist
+
+[ 2015-07-01T16:53:28+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.success_time' in 'where clause'
+
+[ 2015-07-01T16:54:05+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.success_time' in 'where clause'
+
+[ 2015-07-01T17:02:20+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GT 1 ) AND ( 1=1 ) LIMIT 0,10' at line 1
+
+[ 2015-07-01T17:03:03+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GT 1 ) GROUP BY hi.user_id,hi.time_limit,months  )a LIMIT 1' at line 1
+
+[ 2015-07-01T17:08:31+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GT 1 ) GROUP BY hi.user_id,hi.time_limit,months  )a LIMIT 1' at line 1
+
+[ 2015-07-01T17:10:40+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GT 1 ) GROUP BY hi.user_id,hi.time_limit,months  )a LIMIT 1' at line 1
+
+[ 2015-07-01T17:13:38+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GT 1 ) GROUP BY hi.user_id,hi.time_limit,months  )a LIMIT 1' at line 1
+

@@ -1,0 +1,251 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div id="find_pwd"></div>
+<form class="well form-search" method="post" action="{:u('Task/index')}">    
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon search_tit"></i>快速搜索</h3>
+        <ul class="fr">
+        <li><input class="chaxun" type="submit" value="查询"></li>
+        <li><a href="#" class="search_show"><i class="fa fa-chevron-down"></i>收起</a></li>
+        </ul>
+    </div>
+    
+    <div class="s_con fl">
+    <ul>
+        <li><em>任务编号：</em><input type="text" name="tasknum" value="{$formget.tasknum}"  placeholder="请输入任务编号..." class="s_btn w150" ></li>
+    </ul>
+    </div>
+</div>
+    
+
+ <div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>任务列表</h3>
+        <ul class="fr">
+            <!--<li><a href="javascript:openapp_inner('{:U('task/add')}','add_task','新增任务');" class="add_apply"><i class="icon i_add"></i>新增任务</a></li>-->
+            <li><a href="javascript:void(0)" class="js_addcategory add_apply"><i class="icon i_add"></i>新增任务</a></li>
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>                     
+        </ul>
+    </div>
+    <div class="con_tab fl">
+        <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <thead>
+            <tr>
+              <th width="25%" class="t_left">任务编号</th>
+              <th width="10%" class="t_left">任务年份</th>
+              <th width="10%" class="t_left">任务月份</th>
+              <th width="15%" class="t_left">开始时间</th>
+              <th width="15%" class="t_left">结束时间</th>
+              <th width="10%" class="t_left">管理操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="tasks" item="vo">
+            <tr id="edit_{$vo.id}">
+                <input class="disnum" type="hidden" value="{$vo.disnum}" />
+                <td>{$vo.tasknum}</td>
+                <td class="yearnum">{$vo.yearnum}</td>
+                <td class="monthnum">{$vo.monthnum}</td>
+                <td class="begintime">{$vo['begintime'] | date='Y-m-d',###}</td>
+                <td class="endtime">{$vo['endtime'] | date='Y-m-d',###}</td>
+                <td>
+                  <!--<a href="javascript:openapp_inner('{:U('task/edit',array('id'=>$vo['id']))}','app_edit_task','修改任务');">修改</a>-->
+                  <a href="javascript:void(0)" onClick="javascript:js_edityear({$vo.id})">编辑</a>
+                  <em></em>
+                  <a class="J_ajax_del" href="{:U('task/delete',array('id'=>$vo['id']))}">删除</a>
+                </td>
+            </tr>
+         </foreach>
+        </tbody>
+        </table>
+    </div>
+    <div class="pagination fl">{$page}</div>
+</div>
+</form>
+
+<div class="clear h20"> </div>
+<div class="layer_mask"></div>
+<!--新增 start-->
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('Task/add_post')}">
+    <div id="layer" class="js_layer_add wplf w460">
+        <h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>新增任务</h3>
+        <div class="iloan_box">
+            <table class="iloan">
+                <tr>
+                    <th width="100"><i>*</i>任务年编号:</th>
+                    <td>
+						<!-- <input class="w260" name="yearnum" value="" type="text" onblur="isNum(this.value)" />-->
+ 						<select class="w260" name="yearnum">
+							<option value="2014">2014</option>	
+							<option value="2015">2015</option>	
+							<option value="2016">2016</option>	
+							<option value="2017">2017</option>	
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+						</select>
+                    </td>
+                </tr>
+                <tr>
+					<th width="100"><i>*</i>任务月编号:</th>
+					<td>
+						<!--<input class="w260" name="monthnum" value="" type="text" onblur="isNum(this.value)" />-->
+ 						<select class="w260" name="monthnum">
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+					</td>
+				</tr>
+                <tr>
+                    <th width="100"><i>*</i>折比系数:</th>
+                    <td>
+                        <select class="w260" name="disnum">
+                            <foreach name="taskdis" item="vo">
+                                <option value="{$vo.id}">{$vo.name}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr><th width="100"><i>*</i>任务开始时间:</th><td><input class="w260 J_date" name="begintime" value="" type="text" placeholder="2013-01-04" /></td> </tr>
+                <tr><th width="100"><i>*</i>任务结束时间:</th><td><input class="w260 J_date" name="endtime" value="" type="text" placeholder="2013-01-04" /></td> </tr>
+            </table>
+        </div>
+        <div class="la_foot">
+            <button type="submit" class="bg_blue">提交</button>
+            <button type="button" id='close_button'  class="bg_red i_close">关闭</button>
+        </div>
+    </div>
+</form>
+<!--新增 end-->
+
+<!--修改 start-->
+<form name="edit" method="post" class="form-horizontal J_ajaxForm" action="{:U('Task/edit_post')}">
+    <input type="hidden" name="id" value="" />
+    <div id="layer" class="js_layer_edit wplf w460">
+        <h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>编辑任务</h3>
+        <div class="iloan_box">
+            <table class="iloan">
+                <tr>
+					<th width="100"><i>*</i>任务年编号:</th>
+					<td>
+						<!--<input class="w260" name="yearnum" value="{$yearnum}" type="text" onblur="isNum(this.value)" />-->
+						<select class="w260 editYear" name="yearnum">
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+						</select>
+					</td>
+				</tr>
+                <tr>
+					<th width="100"><i>*</i>任务月编号:</th>
+					<td>
+						<!--<input class="w260" name="monthnum" value="{$monthnum}" type="text" onblur="isNum(this.value)" />-->
+						<select class="w260 editMonth" name="monthnum">
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+					</td>
+				</tr>
+                <tr>
+                    <th width="100"><i>*</i>折比系数:</th>
+                    <td>
+                        <select class="w260 editDisnum" name="disnum">
+                            <foreach name="taskdis" item="vo">
+                                <option value="{$vo.id}">{$vo.name}</option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr><th width="100"><i>*</i>任务开始时间:</th><td><input class="w260 J_date" name="begintime" value="{$begintime}" type="text" /></td></tr>
+                <tr><th width="100"><i>*</i>任务结束时间:</th><td><input class="w260 J_date" name="endtime" value="{$endtime}" type="text" /></td></tr>
+            </table>
+        </div>
+        <div class="la_foot">
+            <button type="submit" class="bg_blue">提交</button>
+            <button type="button"  id='close_button'  class="bg_red i_close">关闭</button>
+        </div>
+    </div>
+</form>
+<!--修改 end-->
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){ 
+    $('#page_size').change(function(){  
+        //alert($(this).children('option:selected').val()); 
+        $(".form-search").submit();
+    });
+    
+    $(".search_show").click(function(){
+        $(this).html($(".s_con").is(":hidden") ? "<i class='fa fa-chevron-down'></i>"+"收起" : "<i class='fa fa-chevron-down'></i>"+"展开");
+        $(".s_con").slideToggle(); 
+    });
+
+    $('.js_addcategory').click(function(){
+        $('.layer_mask').fadeIn();
+        $('.js_layer_add').fadeIn();
+    });
+    $('.js_layer_add .i_close').click(function(){
+        $('.layer_mask').fadeOut();
+        $('.js_layer_add').fadeOut();
+    });
+
+
+});
+
+function js_edityear(id){
+    var disnum      = $("tr[id='edit_"+id+"'] .disnum").val();
+    var yearnum     = $("tr[id='edit_"+id+"'] .yearnum").text();
+    var monthnum    = $("tr[id='edit_"+id+"'] .monthnum").text();
+    var begintime   = $("tr[id='edit_"+id+"'] .begintime").text();
+    var endtime     = $("tr[id='edit_"+id+"'] .endtime").text();
+    $("form[name='edit'] input[name='id']").val(id);
+    $(".editYear option[value="+yearnum+"]").attr('selected',true);
+    $(".editMonth option[value="+monthnum+"]").attr('selected',true);
+    $(".editDisnum option[value="+disnum+"]").attr('selected',true);
+    $("form[name='edit'] input[name='begintime']").val(begintime);
+    $("form[name='edit'] input[name='endtime']").val(endtime);
+
+    $('.layer_mask').fadeIn();
+    $('.js_layer_edit').fadeIn();
+    $('.js_layer_edit .i_close').click(function(){
+        $('.layer_mask').fadeOut();
+        $('.js_layer_edit').fadeOut();
+    });
+}
+</script>
+</body>
+</html>

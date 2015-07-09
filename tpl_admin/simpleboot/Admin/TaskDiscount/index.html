@@ -1,0 +1,288 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div id="find_pwd"></div>
+<form class="well form-search" method="post" action="{:u('TaskDiscount/index')}">    
+
+ <div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>折比列表</h3>
+        <ul class="fr">
+            <!--<li><a href="javascript:openapp_inner('{:U('task/add')}','add_task','新增任务');" class="add_apply"><i class="icon i_add"></i>新增任务</a></li>-->
+            <li><a href="javascript:void(0)" class="js_addcategory add_apply"><i class="icon i_add"></i>新增折比</a></li>
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>                     
+        </ul>
+    </div>
+    <div class="con_tab fl">
+
+        <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <thead>
+            <tr>
+              <th width="25%" class="t_left">折比名称</th>
+              <th width="30%" class="t_left">创建时间</th>
+              <th width="30%" class="t_left">修改时间</th>
+              <th width="15%" class="t_left">管理操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="tasks" item="vo">
+            <tr id="edit_{$vo.id}">
+                <td class="name">{$vo.name}</td>
+                <td class="addtime">{$vo.addtime}</td>
+                <td class="updatetime">{$vo.updatetime}</td>
+                <td>
+                  <a href="javascript:void(0)" onClick="javascript:js_edit({$vo.id})">编辑</a>
+                  <em></em>
+                  <a class="J_ajax_del" href="{:U('taskDiscount/delete',array('id'=>$vo['id']))}">删除</a>
+                </td>
+            </tr>
+         </foreach>
+        </tbody>
+        </table>
+            
+    </div>
+    <div class="pagination fl">{$page}</div>
+</div>
+</form>
+<div class="clear h20"> </div>
+<div class="layer_mask" ></div>
+<!--新增 start-->
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('TaskDiscount/add_post')}">
+    <div id="layer" class="js_layer_add wplf w460">
+    <h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>新增折比</h3>
+    <div class="iloan_box">
+    <table class="iloan">
+    <tr>
+    <th width="100"><i>*</i>折比名称：</th><td><input class="w260" name="name" value="" type="text" /> <input class="w120 count_tr" name="count" value="1" type="hidden" /> </td>      
+    </tr>
+    </table>
+    <table id="dynamicTable" class="iloan fold">
+    <thead>
+    <tr>
+    <th width="43%">产品期限（月）</th>
+    <th width="43%">折比系列</th>
+    <th width="14%">&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="1">
+    <td>
+    <select name="time_limit_1" class="w130">
+        <option value="1"  >1个月</option>
+        <option value="2"  >2个月</option>
+        <option value="3"  >3个月</option>
+        <option value="4"  >4个月</option>
+        <option value="6"  >6个月</option>
+        <option value="12"  >12个月</option>
+        <option value="15" >0.5个月</option>
+    </select>
+    </td>
+    <td><input class="w120" name="ratio_1" value="" type="text" onBlur="isNum(this.value)" /></td>
+    <td><A href="#" id="btn_addtr"><i class="fold_add" title="增加"></i></A></td>
+    </tr>  
+    </tbody>              
+    </table>
+    
+    </div>        
+    <div class="la_foot">
+    <button type="submit" class="bg_blue">提交</button>
+    <button type="button" id='close_button'  class="bg_red i_close">关闭</button>
+    </div>
+    </div>
+</form>
+<!--新增 end-->
+
+<!--修改 start-->
+<form name="edit" method="post" class="form-horizontal J_ajaxForm" action="{:U('TaskDiscount/edit_post')}">
+<input type="hidden" name="id" value="" />
+
+<div id="layer" class="js_layer_edit wplf w460" style="display:none;">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>编辑岗位</h3>
+<div class="iloan_box">
+<table class="iloan">
+<tr><th width="100"><i>*</i>折比名称:</th><td><input class="w260" name="name" value="{$yearnum}" type="text" onBlur="isNum(this.value)" /> 
+        <input class="w120 edit_count_tr" name="count" value="1" type="hidden" /> <input class="w120" id="discountid" name="discountid" value="" type="hidden" /> </td>
+</tr>
+</table>
+
+<table id="edit_dynamic" class="iloan fold">
+    <thead>
+    <tr>
+    <th width="43%">产品期限（月）</th>
+    <th width="43%">折比系列</th>
+    <th width="14%">&nbsp;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="1">
+    <td>
+    <select name="time_limit_1" class="w130 editTime">
+        <option value="1"  >1个月</option>
+        <option value="2"  >2个月</option>
+        <option value="3"  >3个月</option>
+        <option value="4"  >4个月</option>
+        <option value="6"  >6个月</option>
+        <option value="12"  >12个月</option>
+        <option value="15" >0.5个月</option>
+    </select>
+    </td>
+<td><input class="w120 editRatio" name="ratio_1" value="" type="text" onBlur="isNum(this.value)" /></td>
+<td><A href="#" id="btn_edit"><i class="fold_add" title="增加"></i></A></td>
+</tr>  
+</tbody>              
+</table>
+</div>
+<div class="la_foot">
+<button type="submit" class="bg_blue">提交</button>
+<button type="button"  id='close_button'  class="bg_red i_close">关闭</button>
+</div>
+</div>
+</form>
+<!--修改 end-->
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('#page_size').change(function(){  
+        //alert($(this).children('option:selected').val()); 
+        $(".form-search").submit();
+    });
+
+    $('.js_addcategory').click(function(){
+        $('.layer_mask').fadeIn();
+        $('.js_layer_add').fadeIn();
+    });
+    $('.js_layer_add .i_close').click(function(){
+        $('.layer_mask').fadeOut();
+        $('.js_layer_add').fadeOut();
+    });
+
+
+});
+var iedit = 1;
+function js_edit(id){
+    iedit = 1;
+    var _len = $("#edit_dynamic tbody tr").length+1;
+    for(j=2;j<=_len;j++){
+        $("tr[id='"+j+"']").remove();//删除当前行
+    }
+        
+    var name  = $("tr[id='edit_"+id+"'] .name").text();
+    $("form[name='edit'] input[name='name']").val(name);
+    $("form[name='edit'] input[name='discountid']").val(id);
+    $.ajax({
+        type:"POST",
+        dataType: "json",//返回json格式的数据
+        url: "{:U('TaskDiscount/edit')}",
+        data:"discountid="+id,
+        success:function(msg){
+       
+            $.each(msg, function(i, n){
+                // alert(n.time_limit+n.ratio);			
+                if(i==1){
+                    $("#edit_dynamic .editTime option[value="+n.time_limit+"]").attr('selected',true);
+                    $("#edit_dynamic .editRatio").val(n.ratio);
+                }else{
+                    var length = $("#edit_dynamic tbody tr").length+1;
+                    $("#edit_dynamic").append("<tr id="+length+">"+
+                                "<td><select name='time_limit_"+length+"'  class='w130 editTime_"+i+"'><option value='1'  >1个月</option><option value='2'  >2个月</option><option value='3'  >3个月</option><option value='4'  >4个月</option><option value='6'  >6个月</option><option value='12'  >12个月</option><option value='15' >0.5个月</option> </select></td>"+
+                                "<td><input type='text' name='ratio_"+length+"' class='w120' id='ratio_"+length+"' /></td>"+
+                                "<td><a href=\'#\' onclick=\'deltrdel("+length+")\'><i class='fold_del' title='删除'></i></a></td>"+
+                                "</tr>");
+                    $("#edit_dynamic .editTime_"+i+" option[value="+n.time_limit+"]").attr('selected',true);
+                    $(".edit_count_tr").val(++iedit);
+                    $("#ratio_"+length).val(n.ratio);
+                }
+                
+            });
+            
+        }
+    });
+    $('.layer_mask').fadeIn();
+    $('.js_layer_edit').fadeIn();
+    $('.js_layer_edit .i_close').click(function(){
+        $('.layer_mask').fadeOut();
+        $('.js_layer_edit').fadeOut();
+    });
+}
+
+//编辑
+$(function () {
+   $("#btn_edit").click(function () {
+        var length = $("#edit_dynamic tbody tr").length+1;	
+        $("#edit_dynamic").append("<tr id="+length+">"+
+            "<td><select name='time_limit_"+length+"' class='w130'><option value='1'  >1个月</option><option value='2'  >2个月</option><option value='3'  >3个月</option><option value='4'  >4个月</option><option value='6'  >6个月</option><option value='12'  >12个月</option><option value='15' >0.5个月</option> </select></td>"+
+            "<td><input type='text' name='ratio_"+length+"' class='w120' id='ratio_"+length+"' /></td>"+
+            "<td><a href=\'#\' onclick=\'deltrdel("+length+")\'><i class='fold_del' title='删除'></i></a></td>"+
+            "</tr>");  	
+        edit_changeIndex();	
+   });
+});
+function edit_changeIndex() {
+        $(".edit_count_tr").val(++iedit);
+}
+function edit_delIndex() {
+        $(".edit_count_tr").val(--iedit);
+}
+var deltrdel =function(index)
+{
+        var _len = $("#edit_dynamic tbody tr").length+1;
+        $("tr[id='"+index+"']").remove();//删除当前行
+        for(var i=index+1,j=_len;i<j;i++)
+        {
+           var nextTxtVal = $("#ratio_"+i).val();
+           $("tr[id=\'"+i+"\']")
+           .replaceWith("<tr id="+(i-1)+">"+
+               "<td><select name='time_limit_"+(i-1)+"' class='w130'><option value='1'  >1个月</option><option value='2'  >2个月</option><option value='3'  >3个月</option><option value='4'  >4个月</option><option value='6'  >6个月</option><option value='12'  >12个月</option><option value='15' >0.5个月</option> </select></td>"+	 
+               "<td><input type='text' name='ratio_"+(i-1)+"' class='w120'  value='"+nextTxtVal+"' id='ratio_"+(i-1)+"'/></td>"+
+               "<td><a href=\'#\' onclick=\'deltrdel("+(i-1)+")\'><i class='fold_del' title='删除'></i></a></td>"+
+               "</tr>");
+        }   
+       edit_delIndex();	        
+}
+
+
+//新增
+$(function () {
+   $("#btn_addtr").click(function () {
+        var length = $("#dynamicTable tbody tr").length+1;	
+        $("#dynamicTable").append("<tr id="+length+">"+
+            "<td><select name='time_limit_"+length+"' class='w130'><option value='1'  >1个月</option><option value='2'  >2个月</option><option value='3'  >3个月</option><option value='4'  >4个月</option><option value='6'  >6个月</option><option value='12'  >12个月</option><option value='15' >0.5个月</option> </select></td>"+
+            "<td><input type='text' name='ratio_"+length+"' class='w120' id='ratio_"+length+"' /></td>"+
+            "<td><a href=\'#\' onclick=\'deltr("+length+")\'><i class='fold_del' title='删除'></i></a></td>"+
+            "</tr>");  	
+        changeIndex();	
+   });
+});
+function changeIndex() {
+	var i = 1;
+	$("#dynamicTable tbody tr").each(function ()
+	 { 
+        $(".count_tr").val(i++);
+	});
+}
+var deltr =function(index)
+{
+        var _len = $("#dynamicTable tbody tr").length+1;
+        $("tr[id='"+index+"']").remove();//删除当前行
+        for(var i=index+1,j=_len;i<j;i++)
+        {
+           var nextTxtVal = $("#ratio_"+i).val();
+           $("tr[id=\'"+i+"\']")
+           .replaceWith("<tr id="+(i-1)+">"+
+               "<td><select name='time_limit_"+(i-1)+"' class='w130'><option value='1'  >1个月</option><option value='2'  >2个月</option><option value='3'  >3个月</option><option value='4'  >4个月</option><option value='6'  >6个月</option><option value='12'  >12个月</option><option value='15' >0.5个月</option> </select></td>"+	 
+               "<td><input type='text' name='ratio_"+(i-1)+"' class='w120'  value='"+nextTxtVal+"' id='ratio_"+(i-1)+"'/></td>"+
+               "<td><a href=\'#\' onclick=\'deltr("+(i-1)+")\'><i class='fold_del' title='删除'></i></a></td>"+
+               "</tr>");
+        }   
+        changeIndex();	        
+}
+</script>
+</body>
+</html>

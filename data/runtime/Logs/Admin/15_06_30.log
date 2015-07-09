@@ -1,0 +1,30 @@
+[ 2015-06-30T08:32:09+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0300s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435624329',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0000s ]
+
+[ 2015-06-30T08:46:15+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS months  WHERE ( 1=1 ) GROUP BY hi.user_id,hi.time_limit,months ORDER BY month' at line 1
+
+[ 2015-06-30T08:46:32+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS tmonths  WHERE ( 1=1 ) GROUP BY hi.user_id,hi.time_limit,months ORDER BY mont' at line 1
+
+[ 2015-06-30T08:46:43+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AS tmonths  WHERE ( 1=1 ) GROUP BY hi.user_id,hi.time_limit,months ORDER BY mont' at line 1
+
+[ 2015-06-30T08:47:08+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.db_prefixtask' doesn't exist
+
+[ 2015-06-30T09:04:32+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE ( 1=1 ) GROUP BY hi.user_id,hi.time_limit,months ORDER BY months DESC LIMI' at line 1
+
+[ 2015-06-30T10:53:13+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.task_discount_detail' doesn't exist
+

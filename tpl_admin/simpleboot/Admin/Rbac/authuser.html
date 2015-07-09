@@ -1,0 +1,97 @@
+<admintpl file="header"/>
+<style>.expander{margin-left: -20px;}</style>
+</head>
+<body class="J_scroll_fixed">
+<form class="form-horizontal J_ajaxForm" action="{:U('Rbac/authuser_post')}" method="post">
+<input type="hidden" name="userid" value="{$userid}" />
+<div class="rzsp_con">
+<h3>用户授权</h3>
+<table class="tab_souquan">
+<tr>
+<th class="l_name" width="100">用户组别:</th>
+<td>
+<foreach name="roles" item="vo">
+<label class="checkbox">
+<php>$role_id_checked=in_array($vo['id'],$role_ids)?"checked":"";</php>
+<input value="{$vo.id}" type="checkbox" name="role_id[]" {$role_id_checked}/>{$vo.name}&nbsp;&nbsp;
+</label>
+</foreach>
+</td>
+</tr>
+<tr id="role_content">
+<th class="l_name">员工档案授权:</th>
+<td class="con_tab">
+<table width="100%" class='tab_list' id="departments-table">
+<tr>
+<th width="23%">分公司 - 分部 - 团队</th>
+<th width="11%" class="t_center">查看</th>
+<th width="11%" class="t_center">添加</th>
+<th width="11%" class="t_center">一级入职审核</th>
+<th width="11%" class="t_center">二级入职审核</th>
+<th width="11%" class="t_center">离职申请</th>
+<th width="11%" class="t_center">一级离职审核</th>
+<th width="11%" class="t_center">二级离职审核</th>
+</tr>
+{$categorys}
+</table>
+</td>
+</tr>
+<tr>
+<th class="l_name">&nbsp;</th>
+<td>
+<button type="submit" class="bg_blue J_ajax_submit_btn">保存</button><button type="button" id='close_button' class="bg_red">返回列表</button>
+</td>
+</tr>
+</table>
+</div>
+<div class="clear h20"></div>
+</form>
+<script src="__ROOT__/statics/js/common.js"></script>  
+<script type="text/javascript">
+$(document).ready(function(){ 
+        $('#close_button').click(function(){
+                history.go(-1);
+        });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+        Wind.css('treeTable');
+        Wind.use('treeTable', function () {
+                $("#departments-table").treeTable({
+                    indent: 20
+                });
+        });
+});
+
+function checknode(obj) {
+    var chk = $("input[class='role_content']"); 
+    var count = chk.length;
+    var num = chk.index(obj); //列标
+    var level_top = chk.eq(num).attr('level'); //部门级别0-2  alert(level_top);
+    var level_bottom = level_top;
+    var value =  chk.eq(num).attr('value'); //alert(value);
+    
+    for (var j = num + 1; j < count; j++) {
+            var le = chk.eq(j).attr('level'); 
+            var val = chk.eq(j).attr('value');
+            if(value == val){
+                if (chk.eq(num).attr("checked") == "checked") {
+                    if (eval(le) > eval(level_bottom)){
+                        chk.eq(j).attr("checked", true);
+                    }else if (eval(le) == eval(level_bottom)){
+                        break;
+                    }
+                } else {
+                    if (eval(le) > eval(level_bottom)){
+                        chk.eq(j).attr("checked", false);
+                    }else if(eval(le) == eval(level_bottom)){
+                        break;
+                    }
+                }
+            }
+    }
+}
+</script>
+</body>
+</html>

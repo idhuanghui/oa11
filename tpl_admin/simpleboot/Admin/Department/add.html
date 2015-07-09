@@ -1,0 +1,70 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('Department/add_post')}">
+<div class="rzsp_con">
+<h3>新增部门</h3>
+<input class="w260" name="level" id="level" value="0" type="hidden" />
+<table class="iloan">
+<tr><th width="140"><i>*</i>部门名称:</th><td><input class="w260" name="name" value="" type="text" /></td></tr>
+<tr><th><i>*</i>所属上级:</th><td><select name="parentid" id="parentid" class="w275" onclick='javascript:checklevel(this);'>
+<option value="0">请选择一级分部</option>
+{$select_categorys}
+</select></td></tr>
+<!--    
+<tr id='ul_ishead'><th><i>*</i>是否为总部:</th><td class="iloan_radio"><input type="radio" name="ishead" value="1" /><em>是</em><input type="radio" name="ishead" value="0" checked/><em>否</em></td></tr>
+<ul><li class="txt"><em>*</em>城市:<li class="empty"><input type="text" class="input" name="cityid" id="" value="{$data.cityid}"></li></ul>
+ -->
+<tr id='ul_ishr'><th><i>*</i>是否为人事部:</th><td class="iloan_radio"><input type="radio" name="ishr" value="1" /><em>是</em><input type="radio" name="ishr" value="0" checked/><em>否</em></td></tr>
+<tr id='ul_isfinance'><th><i>*</i>是否为财务部:</th><td class="iloan_radio"><input type="radio" name="isfinance" value="1" /><em>是</em><input type="radio" name="isfinance" value="0" checked/><em>否</em></td></tr>
+<!--<tr id='ul_header'><th><i>*</i>负责人:</th><td><input type="text" class="w260" name="header" id="" value="{$data.header}"></td></tr>-->
+<tr id='ul_manager'><th><i>*</i>督导:</th><td><input type="text" class="w260" name="manager" id="" value="{$data.manager}"></td></tr>
+<tr id='ul_position_category'><th><i>*</i>岗位组:</th><td><select name="position_category" class="w275">
+<option value="0">请选择岗位类别</option>
+<foreach name="position_categorys" item="vo">
+<option value="{$vo.id}" >{$vo.name}</option>
+</foreach>
+</select></td></tr>
+<tr id='ul_cuttype'><th><i>*</i>提成发放方式:</th><td>
+<select name="cuttype" class="w275">
+    <option value="0">请选择提成发放方式</option>
+    <option value="1" >线上</option>
+    <option value="2" selected>线下</option>
+</select></td></tr>
+<tr><th><i></i>备注:</th><td><textarea name="description" class="w260">{$data.description}</textarea></td>   </tr>   
+<tr><th>&nbsp;</th><td><button type="submit" class="bg_blue J_ajax_submit_btn">提交</button><button type="button" id='close_button' class="bg_red">返回列表</button></td></tr>
+</table>
+</div> 
+</form>    
+<script src="__ROOT__/statics/js/common.js"></script>
+
+<script>
+$(document).ready(function () {
+    $('#close_button').click(function(){  
+        history.go(-1);
+    });
+    checklevel();
+});
+function checklevel(){
+    var select_text = $("#parentid").find("option:selected").text();
+    if(select_text.indexOf('└')!=-1 || select_text.indexOf('├')!=-1){ //添加团队时
+        //alert(select_text.indexOf('└'));
+        $("#ul_header").hide();
+        $("#ul_ishr").show();
+        $("#ul_isfinance").show();
+        $("#ul_manager").show();
+        $("#ul_position_category").show();
+        $("#ul_cuttype").show();
+        $("#level").val(2);
+    }else{
+        $("#ul_header").show();
+        $("#ul_ishr").hide();
+        $("#ul_isfinance").hide();
+        $("#ul_manager").hide();
+        $("#ul_position_category").hide();
+        $("#ul_cuttype").hide();
+        $("#level").val(0);
+    }
+}
+</script>
+</body>
+</html>

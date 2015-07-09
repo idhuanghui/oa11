@@ -1,0 +1,67 @@
+<admintpl file="header"/>
+<body>
+<div class="rzsp_con">
+<h3>详细信息</h3>
+<table class="iloan_des">
+<tr><th width="140">入职部门：</th><td>{$user.area_department}<em>{$user.city_department}</em><em>{$user.name}</em></td></tr>
+<tr><th>角色：</th><td>
+<if condition="$user['level'] eq 1">
+主管
+<else />
+员工
+</if>
+</td></tr>
+<tr><th>岗位名称：</th><td>{$user.poname}</td></tr>
+<tr><th>岗位工薪：</th><td>{$user.payroll_try}元</td></tr>
+<tr><th>姓名：</th><td>{$user.user_realname}</td></tr>
+<tr><th>性别：</th><td>
+<if condition="$user['sex'] eq 1">
+男
+<else />
+女
+</if>
+</td></tr>
+<tr><th>年龄：</th><td>{$user.age}</td></tr>
+<tr><th>手机：</th><td>{$user.user_login}</td></tr>
+<tr><th>身份证号码：</th><td>{$user.idcard}</td></tr>
+<tr><th>户口所在地：</th><td>{$user.acc_address}</td></tr>
+<tr><td>
+<label>是否兼职：</th><td>
+<if condition="$user['temporary'] eq 1">
+兼职
+<else />
+全职
+</if>
+</td></tr>
+<tr><th>汇盈贷账号：</th><td>{$user.hyd_name}</td></tr>
+<tr><th>工资卡开户银行：</th><td>{$user.bank_address}</td></tr>
+<tr><th>工资卡开户姓名：</th><td>{$user.bank_user}</td></tr>
+<tr><th>工资卡开户账号：</th><td>{$user.bank_num}</td></tr>
+<tr><th>邮箱：</th><td>{$user.user_email}</td></tr>
+<tr><th>推荐人：</th><td>{$user.reference}</td></tr>
+<tr><th>社保归属地：</th><td>{$user.acc_province}</td></tr>
+<tr><th>入职日期：</th><td>{$user.entrydate}</td></tr>
+<tr><th>学历：</th><td>{$user.education}</td></tr>
+<tr><th>专业：</th><td>{$user.specialty}</td></tr>
+<if condition="$user['q_time']">
+<tr><th>取消离职时间：</th><td>时间:<?php echo date("Y-m-d H:i:s",$user['f_time'])?></td></tr>
+</if>
+<if condition="$user['f_remark']">
+<tr><th>一级审核意见：</th><td>{$user.f_remark}   时间:<?php echo date("Y-m-d H:i:s",$user['f_time'])?> </td></tr>
+</if>
+<if condition="$user['s_remark']">
+<tr><th>二级审核意见：</th><td>{$user.s_remark} 时间:<?php echo date("Y-m-d H:i:s",$user['s_time'])?></td></tr>
+</if>
+ </table>
+</div>
+</body>
+</html>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#close_button').click(function(){
+            //closeapp($("#appiframe-"+"add_position", window.parent.document));
+            history.go(-1);
+        });
+    });
+</script>

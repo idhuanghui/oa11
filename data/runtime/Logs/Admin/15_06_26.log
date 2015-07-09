@@ -1,0 +1,265 @@
+[ 2015-06-26T09:05:44+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0240s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0380s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435280744',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0000s ]
+
+[ 2015-06-26T09:40:19+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Menu&a=index&menuid=100
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:40:21+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=spmy_import_menu
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:40:24+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:40:25+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:40:26+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=spmy_getactions
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_achievements' doesn't exist
+
+[ 2015-06-26T09:41:20+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Menu&a=index&menuid=100
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:21+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:22+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=spmy_getactions
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+NOTIC: D方法实例化没找到模型类Common\Model\HydInvestmentModel
+
+[ 2015-06-26T09:41:24+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Asset
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:25+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Api
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:26+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=User
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:27+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Wx
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:28+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Comment
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:30+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Qiushi
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:31+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Tpl
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:32+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Topic
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:33+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Install
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:34+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Bug
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:35+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Better
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:37+08:00 ] 127.0.0.1 /index.php?g=admin&m=menu&a=spmy_getactions&app=Pay
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:39+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=lists
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:43+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=edit&id=404
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T09:41:59+08:00 ] 127.0.0.1 /index.php?g=&m=Menu&a=edit_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `oa_users` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `oa_menu` [ RunTime:0.0060s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+SQL: SHOW COLUMNS FROM `oa_auth_rule` [ RunTime:0.0050s ]
+SQL: SELECT `id` FROM `oa_menu` WHERE `app` = 'Admin' AND `model` = 'Achievements' AND `action` = 'index' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `oa_menu` SET `parentid`='365',`name`='绩效统计',`app`='Admin',`model`='Achievements',`action`='index',`data`='',`icon`='',`remark`='',`status`='1',`type`='1' WHERE `id` = 404 [ RunTime:0.0190s ]
+SQL: SELECT * FROM `oa_auth_rule` WHERE `name` = 'admin/achievements/index' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `oa_auth_rule` SET `name`='admin/achievements/index',`module`='Admin',`type`='admin_url',`title`='绩效统计' WHERE `name` = 'admin/achievements/index' [ RunTime:0.0010s ]
+
+[ 2015-06-26T09:42:00+08:00 ] 127.0.0.1 /index.php?g=&m=menu&a=edit&id=404
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-26T14:44:39+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: Think\Model:filed方法不存在！
+
+[ 2015-06-26T15:38:25+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(borrow_money) as ' at line 1
+
+[ 2015-06-26T15:38:27+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(borrow_money) as ' at line 1
+
+[ 2015-06-26T15:39:26+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(borrow_money) as ' at line 1
+
+[ 2015-06-26T15:39:49+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:39:51+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:39:52+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:39:53+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:42:08+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:42:09+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:42:46+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:42:47+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:42:48+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:42:49+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:42:50+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(hi.success_time),'%Y-%m') AS months,sum(hi.borrow_mone' at line 1
+
+[ 2015-06-26T15:43:11+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(hi.borrow_money) ' at line 1
+
+[ 2015-06-26T15:43:12+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(hi.borrow_money) ' at line 1
+
+[ 2015-06-26T15:43:41+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(borrow_money) as ' at line 1
+
+[ 2015-06-26T15:43:43+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(borrow_money) as ' at line 1
+
+[ 2015-06-26T15:43:49+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATE_FORMAT(FROM_UNIXTIME(success_time),'%Y-%m') AS months,sum(borrow_money) as ' at line 1
+
+[ 2015-06-26T15:45:13+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'us on us.id = hi.user_id  WHERE `departmentid` IN ('1','3','23') GROUP BY hi.tim' at line 1
+
+[ 2015-06-26T15:45:15+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'us on us.id = hi.user_id  WHERE `departmentid` IN ('1','3','23') GROUP BY hi.tim' at line 1
+
+[ 2015-06-26T15:45:15+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'us on us.id = hi.user_id  WHERE `departmentid` IN ('1','3','23') GROUP BY hi.tim' at line 1
+
+[ 2015-06-26T15:45:16+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'us on us.id = hi.user_id  WHERE `departmentid` IN ('1','3','23') GROUP BY hi.tim' at line 1
+
+[ 2015-06-26T15:45:16+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'us on us.id = hi.user_id  WHERE `departmentid` IN ('1','3','23') GROUP BY hi.tim' at line 1
+
+[ 2015-06-26T15:45:17+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=8
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'us on us.id = hi.user_id  WHERE `departmentid` IN ('1','3','23') GROUP BY hi.tim' at line 1
+
+[ 2015-06-26T15:46:38+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'us on us.id = hi.user_id  WHERE ( 1=1 ) GROUP BY hi.time_limit' at line 1
+
+[ 2015-06-26T15:47:36+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'departmentid' in where clause is ambiguous
+
+[ 2015-06-26T15:48:05+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T15:49:59+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T15:50:02+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T15:50:22+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T15:50:24+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T15:51:33+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T15:52:13+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:00:36+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'departmentid' in where clause is ambiguous
+
+[ 2015-06-26T16:01:19+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:01:37+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'us.departmentid' in 'where clause'
+
+[ 2015-06-26T16:20:38+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:21:12+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'departmentid' in where clause is ambiguous
+
+[ 2015-06-26T16:21:23+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND ( id > 1 )' at line 1
+
+[ 2015-06-26T16:22:44+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'departmentid' in where clause is ambiguous
+
+[ 2015-06-26T16:23:03+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:23:06+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:37:42+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:38:41+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:42:24+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:45:19+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.departmentid' in 'where clause'
+
+[ 2015-06-26T16:51:20+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=2
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'departmentid' in where clause is ambiguous
+
+[ 2015-06-26T16:51:45+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=2
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.arraya' doesn't exist
+
+[ 2015-06-26T16:51:49+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=2
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.arraya' doesn't exist
+
+[ 2015-06-26T16:52:51+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=2
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.arraya' doesn't exist
+
+[ 2015-06-26T16:52:57+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&departmentid=1%2C3%2C23&departmentname=&user_realname=&time_limit=&begindate=&enddate=&page_size=10&p=2
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.arraya' doesn't exist
+
+[ 2015-06-26T16:53:03+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.arraya' doesn't exist
+
+[ 2015-06-26T17:18:14+08:00 ] 127.0.0.1 /index.php?g=Admin&m=User&a=index&menuid=149
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+

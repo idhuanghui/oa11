@@ -1,0 +1,225 @@
+[ 2015-07-07T08:55:22+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0180s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1436230522',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0010s ]
+
+[ 2015-07-07T09:29:19+08:00 ] 127.0.0.1 /index.php?g=Admin&m=User&a=index&menuid=149
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-07-07T09:29:24+08:00 ] 127.0.0.1 /index.php?g=&m=User&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-07-07T09:29:32+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = '18663161789' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0020s ]
+SQL: UPDATE `oa_users` SET `user_login`='18663161789',`user_pass`='d30ef5b03537421bc1da4441cdd6de9049f2e43b53910b97',`user_realname`='白毅',`user_email`='',`idcard`='',`avatar`=NULL,`sex`='1',`acc_province`='',`acc_city`='',`acc_address`='',`departmentid`='26',`positionid`='35',`level`='2',`temporary`='2',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='2014-09-01',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1436232572',`create_time`='',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='白易',`hyd_id`='4473',`user_type`='2' WHERE `id` = 81 [ RunTime:0.0000s ]
+
+[ 2015-07-07T09:44:04+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'tasknum' in where clause is ambiguous
+
+[ 2015-07-07T09:54:42+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:05+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:06+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:06+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:06+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:07+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:07+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:26+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tk.tasknum' in 'where clause'
+
+[ 2015-07-07T09:55:27+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tk.tasknum' in 'where clause'
+
+[ 2015-07-07T09:56:10+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.tasknum' in 'where clause'
+
+[ 2015-07-07T09:56:11+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.tasknum' in 'where clause'
+
+[ 2015-07-07T09:56:11+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.tasknum' in 'where clause'
+
+[ 2015-07-07T09:56:11+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.tasknum' in 'where clause'
+
+[ 2015-07-07T10:28:36+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:28:37+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:29:41+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:29:43+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:34:04+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:34:27+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:34:29+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:35:48+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:35:50+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:37:27+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:45:32+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:50:55+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T10:51:36+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:02:40+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:02:42+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:03:12+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:03:13+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:04:40+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:04:41+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:05:30+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T11:05:32+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:25:15+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:25:17+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:36:10+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:36:11+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:36:14+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:36:15+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:37:44+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:37:46+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:39:36+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:39:37+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:40:26+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0030s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1436254826',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0000s ]
+
+[ 2015-07-07T15:40:30+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:44:45+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:44:45+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:45:23+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:47:11+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:48:55+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:48:56+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:49:14+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:49:15+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:53:29+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+
+[ 2015-07-07T15:55:14+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+
+[ 2015-07-07T15:55:59+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:56:45+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:57:13+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:57:35+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-07T15:57:56+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+

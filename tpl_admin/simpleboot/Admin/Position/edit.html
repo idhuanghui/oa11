@@ -1,0 +1,42 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('position/edit_post')}">
+<div class="rzsp_con"><input type="hidden" name="id" value="{$id}"/>
+<h3>编辑岗位</h3>
+<table class="iloan">
+<tr><th width="140"><i>*</i>岗位名称:</th><td><input class="w260" name="name" value="{$name}" type="text" /></td></tr>  
+<tr> <th><i>*</i>岗位类别:</th><td>
+<select name="category_id" class="w275">
+<foreach name="categorys" item="vo">
+<option value="{$vo.id}" <php>echo $category_id==$vo['id']?"selected":""</php> >{$vo.name}</option>
+</foreach>
+</select>
+</td></tr>
+<tr><th><i></i>岗位描述:</th><td><textarea name="description" class="w260">{$description}</textarea></td></tr>     
+<tr> <th><i></i>状态:</th><td>
+<php>
+$radio1=''; $radio2=' checked';
+if($status==1){
+$radio1=' checked'; $radio2='';
+}
+</php>
+<input type="radio" {$radio1} class="radio" name="status" value="1" />开启
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" {$radio2} class="radio" name="status" value="0" />禁用
+</td></tr>
+<tr><th>&nbsp;</th><td><button type="submit" class="bg_blue J_ajax_submit_btn">提交</button><button type="button" id='close_button' class="bg_red">返回列表</button></td> 
+</table>
+</div>
+</form>       
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('#close_button').click(function(){  
+        //closeapp($("#appiframe-"+"add_position", window.parent.document));
+        close_current_app();
+    });
+});
+</script>
+</body>
+</html>

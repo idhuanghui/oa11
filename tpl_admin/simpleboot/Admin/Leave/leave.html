@@ -1,0 +1,33 @@
+<admintpl file="header"/>
+<body>
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('Leave/applyEdit_post')}">
+<input type="hidden" name="userid" value="{$user.id}" />
+<input type="hidden" name="oprocess" value="Q1" />
+<div class="rzsp_con">
+<h3>离职申请</h3>
+<table class="iloan">
+<tr><th width="140"><i>*</i>离职类型：</th><td>
+<select class="w275" name="remark">
+<option value="">请选择离职类型</option>
+<option value="1">主动离职</option>
+<option value="2">被动离职</option>
+</select>
+</td> </tr>
+<tr><th><i>*</i>离职原因：</th><td><textarea class="w260" name="with_remark" placeholder="请填写离职原因"></textarea></td> </tr>
+<tr><th><i>*</i>离职日期：</th><td><input class="w260 J_date" type="text"  name="leave_time" placeholder="2013-01-04" /></td> </tr>
+<tr><th><i>*</i>工薪截止日：</th><td><input class="w260 J_date" type="text" name="end_time" placeholder="2013-01-04" /></td> </tr>
+<tr><th>&nbsp;</th><td><button type="submit" class="bg_blue">提交</button><button id='close_button' type="button" class="bg_red">返回列表</button></td></tr>
+</table>
+</div>
+</form>
+</body>
+</html>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript" src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#close_button').click(function(){
+            history.go(-1);
+        });
+    });
+</script>

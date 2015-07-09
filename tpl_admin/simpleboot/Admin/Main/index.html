@@ -1,0 +1,32 @@
+<admintpl file="header"/>
+<style>
+h4.well{ margin:12px 0 8px 0; font-size:16px; font-weight:100; color: #6099c4;}
+.home_info li{ line-height:29px; font-size:13px;}
+.home_info li label { float: left; width: 100px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h4 class="well">系统信息</h4> 
+<div class="home_info">
+<ul>
+<volist name="server_info" id="vo">
+<li><label>{$key}</label>{$vo}</li>
+</volist>
+</ul>
+</div>
+<h4 class="well">发起团队</h4>
+<div class="home_info" id="home_devteam">
+<ul>
+<li><label>OA团队</label>www.huiyingdai.com</li>
+<li><label>团队成员</label>李磊，李杨，张成浩，黄辉</li>
+<li><label>联系邮箱</label>oa@huiyingdai.com</li>
+</ul>
+</div>
+</div>
+
+<script src="__ROOT__/statics/js/common.js"></script> 
+<script>
+</script>
+</body>
+</html>

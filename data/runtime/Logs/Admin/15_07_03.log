@@ -1,0 +1,111 @@
+[ 2015-07-03T08:52:24+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0300s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435884744',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0000s ]
+
+[ 2015-07-03T15:19:57+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_' doesn't exist
+
+[ 2015-07-03T15:21:10+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_' doesn't exist
+
+[ 2015-07-03T15:22:13+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_' doesn't exist
+
+[ 2015-07-03T15:22:57+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_' doesn't exist
+
+[ 2015-07-03T15:25:11+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0030s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435908311',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0010s ]
+
+[ 2015-07-03T15:42:42+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and )' at line 1
+
+[ 2015-07-03T16:24:19+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_achievements' doesn't exist
+
+[ 2015-07-03T16:24:21+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hyd_oa.oa_achievements' doesn't exist
+
+[ 2015-07-03T16:24:54+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+
+[ 2015-07-03T16:24:56+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
+
+[ 2015-07-03T16:29:59+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:30:01+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:36:03+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:36:05+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:37:20+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:40:09+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:40:10+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:40:45+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:40:47+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:45:45+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:45:46+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=addAchievements
+ERR: 模板不存在:tpl_admin/simpleboot/Admin/Achievements/addAchievements.html
+
+[ 2015-07-03T16:58:12+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hi.tasknum' in 'where clause'
+
+[ 2015-07-03T17:04:15+08:00 ] 127.0.0.1 /index.php?g=Admin&m=SalesCount&a=index&menuid=368
+NOTIC: D方法实例化没找到模型类Common\Model\HydInvestmentModel
+
+[ 2015-07-03T17:10:22+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Department&a=index&menuid=133
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-07-03T17:16:56+08:00 ] 127.0.0.1 /index.php?g=Admin&m=User&a=index&menuid=149
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-07-03T17:17:02+08:00 ] 127.0.0.1 /index.php?g=&m=User&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-07-03T17:17:10+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = '18663161789' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0020s ]
+SQL: UPDATE `oa_users` SET `user_login`='18663161789',`user_pass`='d30ef5b03537421bc1da4441cdd6de9049f2e43b53910b97',`user_realname`='白毅',`user_email`='',`idcard`='',`avatar`=NULL,`sex`='1',`acc_province`='',`acc_city`='',`acc_address`='',`departmentid`='26',`positionid`='35',`level`='2',`temporary`='2',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='2014-09-01',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435915030',`create_time`='',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='白易',`hyd_id`='4473',`user_type`='2' WHERE `id` = 81 [ RunTime:0.0000s ]
+

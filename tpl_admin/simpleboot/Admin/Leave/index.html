@@ -1,0 +1,304 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<link href="__ROOT__/statics/simpleboot/css/zTreeStyle.css" rel="stylesheet">
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.excheck-3.5.js"></script>
+<div id="s_export"><span>正在导出Excel...</span></div>
+<div class="js_search"><span><img src="__ROOT__/statics/simpleboot/images/search.gif"></span></div>
+<form class="well form-search" method="post" action="{:U('Leave/index')}">
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon search_tit"></i>快速搜索</h3>
+        <ul class="fr">
+            <li><input class="chaxun" type="submit" value="查询"></li>
+            <!--<li><a href="{:U('Excel/levalExcel')}"><i class="icon i_dao"></i>导出</a></li>-->
+            <li><a id="exploder" href="javascript:void(0)"><i class="fa fa-reply"></i>导出</a><input id="explode" name="explode" type="hidden"  value="1" ></li>
+            <li><a href="javascript:void(0)" class="search_show"><i class="fa fa-chevron-down"></i>收起</a></li>
+        </ul>
+    </div>
+    <div class="s_con fl">
+        <ul>
+            <li><em>分部：</em>    
+                <div class="btn_sel w180">
+                <input id="citySel"  type="text" name="departmentname" value="{$formget.departmentname}" class="no_border"  readonly onClick="showMenu();" ><i onClick="showMenu();"></i>     
+                </div> 
+                <input id="departments" name="departmentid" type="hidden" value="{$formget.departmentid}" >
+                <div id="menuContent" class="menuContent">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </li>
+            <!--<li><em>团队：</em>-->
+                <!--<select class="w100">-->
+                    <!--<option>全部</option>-->
+                    <!--<option>董事办</option>-->
+                    <!--<option>运营部</option>-->
+                <!--</select>-->
+            <!--</li>-->
+            <li><em>角色：</em>
+                <select class="w80" name="level">
+                    <option value="">全部</option>
+                    <option value="1" <php>echo $formget['level']==1?"selected":""</php>>主管</option>
+                    <option value="2" <php>echo $formget['level']==2?"selected":""</php>>员工</option>
+                </select>
+            </li>
+            <li><em>姓名：</em><input type="text" class="s_btn w100" name="user_realname" value="{$formget.user_realname}" /></li>
+            <li><em>手机：</em><input type="text" class="s_btn w100" name="user_login" value="{$formget.user_login}" /></li>
+            <li><em>是否兼职：</em>
+                <select class="w80" name="temporary">
+                    <option value="">全部</option>
+                    <option value="2" <php>echo $formget['temporary']==2?"selected":""</php> >全职</option>
+                    <option value="1" <php>echo $formget['temporary']==1?"selected":""</php> >兼职</option>
+                </select>
+            </li>
+            <li><em>离职状态：</em>
+                <select class="w80" name="user_status">
+                    <option value="">全部</option>
+                    <option <php>echo $formget['user_status']==Q?"selected":""</php> value="Q">已离职</option>
+                    <option <php>echo $formget['user_status']==Q3?"selected":""</php> value="Q3">取消离职</option>
+                    <option <php>echo $formget['user_status']==Q11?"selected":""</php> value="Q11">一审驳回</option>
+                    <option <php>echo $formget['user_status']==Q21?"selected":""</php> value="Q21">二审驳回</option>
+                    <option <php>echo $formget['user_status']==Q1?"selected":""</php> value="Q1">待一级审批</option>
+                    <option <php>echo $formget['user_status']==Q2?"selected":""</php> value="Q2">待二级审批</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>离职列表</h3>
+        <ul class="fr">
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div class="con_tab fl">
+        <form method="post" action="" name="">
+            <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                <tr>
+                    <th width="9%">二级分部</th>
+                    <th width="9%">城市经理</th>
+                    <th width="10%">团队名称</th>
+                    <th width="6%">姓名</th>
+                    <th width="5%">角色</th>
+                    <th width="8%">岗位名称</th>
+                    <th class="t_center" width="8%">手机</th>
+                    <th class="t_center" width="8%">入职日期</th>
+                    <th class="t_center" width="8%">是否兼职</th>
+                    <th width="8%">汇盈贷账号</th>
+                    <th width="8%">离职状态</th>
+                    <th class="t_center" width="18%">操 作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="users" item="vo">
+                <tr>
+                    <td>{$vo.city_department}</td>
+                    <td>{$vo.city_header}</td>
+                    <td>{$vo.dname}</td>
+                    <td>{$vo.user_realname}</td>
+                    <td>
+                        <if condition="$vo['level'] eq 1">
+                            主管
+                            <else />
+                            员工
+                        </if>
+                    </td>
+                    <td>{$vo.pname}</td>
+                    <td class="t_center">{$vo.user_login}</td>
+                    <td class="t_center">{$vo.entrydate}</td>
+                    <td class="t_center">
+                      <if condition="$vo['temporary'] eq 2">
+                          全职
+                      <else/>
+                          兼职
+                      </if>
+                    </td>
+                    <td>{$vo.hyd_name}</td>
+                    <td>{:userStatus($vo['oprocess'])}</td>
+                    <td class="t_center">
+                        <if condition="$oneLeave">
+                            <A href="{:U('Leave/info',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">详细</A>
+                            <if condition="($vo['oprocess'] NEQ 'Q11') && ($vo['oprocess'] NEQ 'Q21') && ($vo['oprocess'] NEQ 'Q3')">
+                                <if condition="($vo['oprocess'] EQ 'Q1') AND ($vo['oprocess'] NEQ 'Q11' OR $vo['oprocess'] EQ 'Q21')">
+                                   <em></em> <A href="{:U('Leave/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                                </if>
+                            </if>
+                            <elseif condition="$twoLeave" />
+                            <A href="{:U('Leave/info',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">详细</A>
+                            <if condition="($vo['oprocess'] NEQ 'Q11') && ($vo['oprocess'] NEQ 'Q21') && ($vo['oprocess'] NEQ 'Q3')">
+                                <if condition="($vo['oprocess'] EQ 'Q2') AND ($vo['oprocess'] NEQ 'Q11' OR $vo['oprocess'] EQ 'Q21')">
+                                   <em></em> <A href="{:U('Leave/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                                </if>
+                            </if>
+                            <elseif condition="($ishr && $oneLeave)" />
+                            <A href="{:U('Leave/info',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">详细</A>
+                            <if condition="($vo['oprocess'] EQ 'Q1') AND ($vo['oprocess'] NEQ 'Q11' OR $vo['oprocess'] EQ 'Q21')">
+                                <em></em><A href="{:U('Leave/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                                <em></em><A class="J_ajax_cancel" href="{:U('Leave/cancelLeave',array('id'=>$vo['id']))}">取消离职</A>
+                            </if>
+                            <elseif condition="$ishr && $twoLeave" />
+                                <A href="{:U('Leave/info',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">详细</A>
+                            <if condition="($vo['user_status'] EQ 'Q2') AND ($vo['oprocess'] NEQ 'Q11' OR $vo['oprocess'] EQ 'Q21')">
+                               <em></em> <A href="{:U('Leave/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                            </if>
+                            <elseif condition="$ishr" />
+                                <A href="{:U('Leave/info',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">详细</A>
+                            <if condition="$vo['user_status'] EQ 'Q1'">
+                               <em></em> <A class="J_ajax_cancel" href="{:U('Leave/cancelLeave',array('id'=>$vo['id']))}">取消离职</A>
+                            </if>
+                            <elseif condition="$isadm" />
+                            <A href="{:U('Leave/info',array('id'=>$vo['id']))}">详细</A>
+                            <if condition="$vo['user_status'] EQ 'Q1'">
+                               <em></em> <A href="{:U('Leave/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                               <em></em> <A class="J_ajax_cancel" href="{:U('Leave/cancelLeave',array('id'=>$vo['id']))}">取消离职</A>
+                                <elseif condition="$vo['user_status'] EQ 'Q2'" />
+                               <em></em><A href="{:U('Entry/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                            </if>
+                            <elseif condition="session('ADMIN_ID') EQ '1'" />
+                            <A href="{:U('Leave/info',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">详细</A>
+                            <if condition="$vo['user_status'] EQ 'Q1'">
+                                <em></em><A href="{:U('Leave/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                                <em></em><A class="J_ajax_cancel" href="{:U('Leave/cancelLeave',array('id'=>$vo['id']))}">取消离职</A>
+                                <elseif condition="$vo['oprocess'] EQ 'Q2'" />
+                                <em></em><A href="{:U('Entry/edit',array('id'=>$vo['id'],'ulid'=>$vo['ulid']))}">审批</A>
+                            </if>
+                        </if>
+                </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="pagination fl">
+        {$page}
+    </div>
+</div>
+</form>
+<div class="clear h20"> </div>
+
+<!--导出数据 start-->
+<div id="layer" class="js_layer_export wplf w460">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>提示</h3>
+<div class="iloan_box"><h4>您确定要导出Excel吗?</h4></div>
+<div class="la_foot">
+<input type="submit" class="bg_blue " value="是" />
+<button type="button" id='close_button'  class="bg_red i_close">否</button>
+</div>
+</div>
+<!--导出数据 end--> 
+</body>
+<script type="text/javascript" src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {	
+$('#exploder').click(function(){
+		$('.layer_mask').fadeIn();
+		$('.js_layer_export').fadeIn();
+	})	
+	$('.js_layer_export .i_close').click(function(){
+		$('.layer_mask').fadeOut();
+		$('.js_layer_export').fadeOut();
+	})	
+});
+    $(document).ready(function(){
+        //自动分页
+        $('#page_size').change(function(){
+            //alert($(this).children('option:selected').val());
+            $(".form-search").submit();
+        });
+    });
+
+    $(".search_show").click(function(){
+        $(this).html($(".s_con").is(":hidden") ? "<i class='fa fa-chevron-down'></i>"+"收起" : "<i class='fa fa-chevron-up'></i>"+"展开");
+        $(".s_con").slideToggle();
+    });
+</script>
+<SCRIPT type="text/javascript">
+
+    var setting = {
+        check: {
+            enable: true
+        },
+        view: {
+            dblClickExpand: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            beforeClick: beforeClick,
+            onCheck: onCheck
+        }
+    };
+    var zNodes = {$select_categorys};
+    function beforeClick(treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        zTree.checkNode(treeNode, !treeNode.checked, null, true);
+        return false;
+    }
+
+    function onCheck(e, treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+                nodes = zTree.getCheckedNodes(true),
+                v = "";
+        k = "";
+        for (var i=0, l=nodes.length; i<l; i++)
+        {
+            v += nodes[i].name + ",";
+        }
+        if (v.length > 0 ) v = v.substring(0, v.length-1);
+        var cityObj = $("#citySel");
+        cityObj.attr("value", v);
+
+        for (var i=0, l=nodes.length; i<l; i++)
+        {
+            k += nodes[i].id + ",";
+        }
+        if (k.length > 0 ) k = k.substring(0, k.length-1);
+        var cityid = $("#departments");
+        cityid.attr("value", k);
+    }
+
+    function showMenu() {
+        var cityObj = $("#citySel");
+        var cityOffset = $("#citySel").offset();
+        $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+        $("body").bind("mousedown", onBodyDown);
+    }
+    function hideMenu() {
+        $("#menuContent").fadeOut("fast");
+        $("body").unbind("mousedown", onBodyDown);
+    }
+    function onBodyDown(event) {
+        if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+            hideMenu();
+        }
+    }
+    $(document).ready(function(){
+		$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		$('.js_layer_export .bg_blue').click(function(){	
+		   $('.layer_mask').fadeOut();
+		   $('.js_layer_export').fadeOut();	
+		   $('#s_export').fadeIn("slow").fadeOut(1800);	 
+           $("#explode").val(1);
+           $(".form-search").submit();				
+        });	
+        $('.chaxun').click(function(){
+            //alert($(this).children('option:selected').val());
+			$('.js_search').fadeIn();
+            $("#explode").val(0);
+            $(".form-search").submit();
+        });
+    });
+</SCRIPT>
+</html>

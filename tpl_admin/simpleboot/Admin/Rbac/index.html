@@ -1,0 +1,158 @@
+<admintpl file="header"/>
+<head/>
+<body>
+<div id="find_pwd"></div>
+<form name="myform" action="{:U('Rbac/listorders')}" method="post">    
+<div class="Search">
+<div class="tit">
+<h3><i class="icon tab_tit"></i>用户组列表</h3>
+<ul class="fr">
+<!-- <li><a href="javascript:openapp_inner('{:U('rbac/roleadd')}','roleadd','新增用户组');" class="add_apply"><i class="icon i_add"></i>新增用户组</a></li>   -->
+<li><a href="javascript:void(0)" class="js_addcategory add_apply"><i class="icon i_add"></i>新增用户组</a></li>                   
+</ul>
+</div>
+
+    <div class="con_tab fl">
+        <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <thead>
+        <tr>
+          <th width="30">ID</th>
+          <th width="160" align="left" >用户组名称</th>
+          
+          <th align="left" >用户组描述</th>
+          <th width="120" align="left" >添加时间</th>
+          <th width="40" align="left" >状态</th>
+          <th width="200">管理操作</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+          <foreach name="roles" item="vo">
+          <tr id="edit_{$vo.id}">
+            <td class='edit_id'>{$vo.id}</td>
+            <td class='edit_name'>{$vo.name}</td>
+
+            <td class='edit_remark'>{$vo.remark}</td>
+            <td class='edit_create_time'>{$vo.create_time|date='Y-m-d',###}</td>
+            
+            <td id="td_status_{$vo.id}"><if condition="$vo['status'] eq 1"> 
+                  <a href="javascript:status_set({$vo.id},1);" title="点击禁用" class="color_green">已启用</a>
+              <else />
+                  <a href="javascript:status_set({$vo.id},0);" title="点击启用" class="color_red">已禁用</a>
+              </if></td>
+            
+            
+            <td  class="text-c">
+            <if condition="$vo['id'] eq 1"> 
+                <font color="#cccccc">权限设置</font> 
+                <em></em>
+                <font color="#cccccc">编辑</font> 
+                <em></em> 
+                <font color="#cccccc">删除</font>
+            <else />
+                <!--<a href="{:U('Rbac/authuser',array('id'=>$vo['id']))}">用户授权</a> | -->
+                <a href="{:U('Rbac/authorize',array('id'=>$vo['id']))}">权限设置</a>
+                <em></em> 
+                <!--<a href="javascript:openapp_inner('{:U('Rbac/roleedit',array('id'=>$vo['id'],'department_id'=>$vo['department_id']))}','app_roleedit','用户组修改');">编辑</a>-->
+                <a href="javascript:void(0)" onClick="javascript:js_editcategory({$vo.id})">编辑</a> 
+                <em></em> 
+                <a class="J_ajax_del" href="{:U('Rbac/roledelete',array('id'=>$vo['id']))}">删除</a>
+            </if>
+            </td>
+          </tr>
+          </foreach>
+        </tbody>
+        </table>
+  </div>
+</div>
+</form>
+<div class="clear h20"> </div>
+<div class="layer_mask"></div>  
+<!--新增 start-->
+<form class="form-horizontal J_ajaxForm" action="{:U('Rbac/roleadd_post')}" method="post" id="myform">
+<div id="layer" class="js_layer_add wplf w460">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>新增用户组</h3>
+<div class="iloan_box">
+<table class="iloan">
+<tr><th width="90"><i>*</i>用户组名称：</th><td><input type="text" name="name" value="" class="w260" id="rolename"></input></td></tr>
+<tr><th><i></i>用户组描述：</th><td><textarea name="remark" class="w260"></textarea></td></tr>
+<tr><th><i></i>是否启用：</th><td class="iloan_radio"><input type="radio"  name="status" value="1" checkedid="active_true"/><em>开启</em><input type="radio" name="status" value="0" id="active_false"><em>禁用</em></td></tr>
+</table>
+</div>
+<div class="la_foot">
+<button type="submit" class="bg_blue">提交</button>
+<button type="button"  id='close_button'  class="bg_red i_close">关闭</button>
+</div>
+</div>
+</form> 
+<!--新增 end-->
+
+<!--修改 start-->
+<form name="edit" class="form-horizontal J_ajaxForm" action="{:U('Rbac/roleedit_post')}" method="post" id="myform">
+<input type="hidden" name="id" value="{$data.id}" />
+<div id="layer" class="js_layer_edit wplf w460">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>编辑用户组</h3>
+<div class="iloan_box">
+<table class="iloan">
+<tr><th width="90"><i>*</i>用户组名称:</th><td><input type="text" name="name" value="{$data.name}" class="w260" id="rolename"></td></tr>   
+<tr><th><i></i>用户组描述:</th><td><textarea name="remark" id="remark" class="w260" >{$data.remark}</textarea></td></tr>
+</table>
+</div>
+<div class="la_foot">
+<button type="submit" class="bg_blue">提交</button>
+<button type="button"  id='close_button'  class="bg_red i_close">关闭</button>
+</div>
+</div>
+</form> 
+<!--修改 end--> 
+
+<script src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript">
+    function status_set(id,status){
+        $.ajax({
+            type:'POST',
+            url:"{:U('Rbac/status_reset')}",
+            data:'id='+id+'&status='+status,
+            success: function(msg){
+                $("#find_pwd").fadeIn("slow").fadeOut(2800).html("<span>"+msg+"</span>");
+                if(status){
+                    $("#td_status_"+id).html('<a href="javascript:status_set('+id+',0);" title="点击启用" class="color_red">已禁用</a>');
+                }else{
+                    $("#td_status_"+id).html('<a href="javascript:status_set('+id+',1);" title="点击禁用" class="color_green">已启用</a>');
+                }
+            }
+
+        });
+    };
+    
+$(document).ready(function(){ 
+        $('#page_size').change(function(){  
+            //alert($(this).children('option:selected').val()); 
+            $(".form-search").submit();
+        });
+
+	$('.js_addcategory').click(function(){
+		$('.layer_mask').fadeIn();
+		$('.js_layer_add').fadeIn();
+	});
+	$('.js_layer_add .i_close').click(function(){
+		$('.layer_mask').fadeOut();
+		$('.js_layer_add').fadeOut();
+	});
+});
+function js_editcategory(id){
+        var name = $("tr[id='edit_"+id+"'] .edit_name").text();
+        var remark = $("tr[id='edit_"+id+"'] .edit_remark").text();
+        $("form[name='edit'] input[name='id']").val(id);
+        $("form[name='edit'] input[name='name']").val(name);
+        $("#remark").val(remark);
+        $('.layer_mask').fadeIn();
+        $('.js_layer_edit').fadeIn();
+		$('.js_layer_edit .i_close').click(function(){
+		$('.layer_mask').fadeOut();
+		$('.js_layer_edit').fadeOut();
+	});	
+	}
+</script>
+</body>
+</html>

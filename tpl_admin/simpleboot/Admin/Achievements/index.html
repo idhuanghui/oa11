@@ -1,0 +1,228 @@
+<admintpl file="header"/>
+<link href="__ROOT__/statics/simpleboot/css/zTreeStyle.css" rel="stylesheet">
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/My97DatePicker/WdatePicker.js"></script>
+<body>
+<form class="well form-search" method="post" action="{:U('Achievements/index')}">
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon search_tit"></i>快速搜索</h3>
+        <ul class="fr">
+            <li><input class="chaxun" type="submit" value="查询"></li>
+            <li><a id="exploder" href="javascript:void(0)"><i class="fa fa-reply"></i>导出<input id="explode" name="explode" type="hidden"  value="0" ></a></li>
+            <li><a href="javascript:void(0)" class="search_show"><i class="fa fa-chevron-down"></i>收起</a></li>
+        </ul>
+    </div>
+    <div class="s_con fl">
+        <ul>
+            <if condition="$departments GT 0 OR session('ADMIN_ID') EQ 1">
+            <li><em>分部：</em>
+                <div class="btn_sel w180">
+                <input id="citySel"  type="text" name="departmentname" value="{$formget.departmentname}" class="no_border"  readonly onClick="showMenu();" ><i onClick="showMenu();"></i>  
+                </div> 
+                <input id="departments" name="departmentid"  type="hidden"  value="{$formget.departmentid}" >
+                <div id="menuContent" class="menuContent">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </li>
+            
+            <li><em>员工：</em>
+                    <input type="text" class="s_btn w100" name="user_realname" value="{$formget.user_realname}" />
+                    <input type="hidden" class="s_btn w100" name="user_id" value="{$formget.user_id}" />
+            </li>
+            </if>
+            <li><em>任务年：</em>
+                <select class="w80" name="taskyear">
+                    <option value="2015" <php>echo $formget['taskyear']==2015?"selected":""</php>>2015</option>
+                    <option value="2016" <php>echo $formget['taskyear']==2016?"selected":""</php>>2016</option>
+                    <option value="2017" <php>echo $formget['taskyear']==2017?"selected":""</php>>2017</option>
+                    <!--<option value="2018"></option>-->
+                    <!--<option value="2019"></option>-->
+                    <!--<option value="2020"></option>-->
+                </select>
+            </li>
+            <li><em>任务月：</em>
+                <select class="w80" name="taskmonth">
+                    <option value="01" <php>echo $formget['taskmonth']==01?"selected":""</php> >01</option>
+                    <option value="02" <php>echo $formget['taskmonth']==02?"selected":""</php> >02</option>
+                    <option value="03" <php>echo $formget['taskmonth']==03?"selected":""</php> >03</option>
+                    <option value="04" <php>echo $formget['taskmonth']==04?"selected":""</php> >04</option>
+                    <option value="05" <php>echo $formget['taskmonth']==05?"selected":""</php> >05</option>
+                    <option value="06" <php>echo $formget['taskmonth']==06?"selected":""</php> >06</option>
+                    <option value="07" <php>echo $formget['taskmonth']==07?"selected":""</php> >07</option>
+                    <option value="08" <php>echo $formget['taskmonth']==08?"selected":""</php> >08</option>
+                    <option value="09" <php>echo $formget['taskmonth']==09?"selected":""</php> >09</option>
+                    <option value="10" <php>echo $formget['taskmonth']==10?"selected":""</php> >10</option>
+                    <option value="11" <php>echo $formget['taskmonth']==11?"selected":""</php> >11</option>
+                    <option value="12" <php>echo $formget['taskmonth']==12?"selected":""</php> >12</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>绩效统计</h3>
+        <ul class="fr">
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div class="con_tab fl">
+            <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                <tr>
+                    <th class="t_center" >任务时间</th>
+                    <th class="t_center">区域经理</th>
+                    <th class="t_center">城市经理</th>
+                    <th class="t_center">督导</th>
+                    <th class="t_center">一级分部</th>
+                    <th class="t_center">二级分部</th>
+                    <th class="t_center">部门名称</th>
+                    <th class="t_center" >员工</th>
+                    <th class="t_center" >是否兼职</th>
+                    <th class="t_center" >销售业绩</th>
+                    <th class="t_center" >折比业绩</th>
+                    <th class="t_center" >注册并开通汇付天下<br />(开户)人数</th>
+                    <th class="t_center" >当月开户并投资<br />(0&lt;投资&lt;100)人数</th>
+                    <th class="t_center" >当月开户并投资<br />(100&le;投资&lt;3000)人数</th>
+                    <th class="t_center" >当月开户并投资<br />(3000&le;投资)人数</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="achieve" item="vo">
+                    <tr>
+                        <td class="t_center">{$vo.month}</td>
+                        <!--<td class="t_center">{$vo.months}</td>-->
+                        <td class="t_center">{$vo.area_header}</td>
+                        <td class="t_center">{$vo.city_header}</td>
+                        <td class="t_center">{$vo.manager}</td>
+                        <td class="t_center">{$vo.area_department}</td>
+                        <td class="t_center">{$vo.city_department}</td>
+                        <td class="t_center">{$vo.department_name}</td>
+                        <td class="t_center">{$vo.user_realname}</td>
+						<td class="t_center">
+							<if condition="$vo['temporary'] eq 2">
+								全职
+								<else />
+								兼职	
+							</if>	
+						</td>
+						<td class="t_center">{$vo.allmoney}</td>
+						<td class="t_center">{$vo.ratio}</td>
+                        <td class="t_center">{$vo.open_num}</td>
+                        <td class="t_center">{$vo.this_num1}</td>
+                        <td class="t_center">{$vo.this_num2}</td>
+                        <td class="t_center">{$vo.this_num3}</td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+    </div>
+    <div class="pagination fl">
+        {$page}
+    </div>
+</div>
+</form>
+</body>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //导出
+        $('#exploder').click(function(){
+            $("#explode").val(1);
+            $(".form-search").submit();
+            $("#explode").val(0);
+        });
+        //自动分页
+        $('#page_size').change(function(){
+            //alert($(this).children('option:selected').val());
+            $(".form-search").submit();
+        });
+    });
+
+    $(".search_show").click(function(){
+        $(this).html($(".s_con").is(":hidden") ? "<i class='fa fa-chevron-down'></i>"+"收起" : "<i class='fa fa-chevron-up'></i>"+"展开");
+        $(".s_con").slideToggle();
+    });
+</script>
+<SCRIPT type="text/javascript">
+
+    var setting = {
+        check: {
+            enable: true
+        },
+        view: {
+            dblClickExpand: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            beforeClick: beforeClick,
+            onCheck: onCheck
+        }
+    };
+
+    var zNodes = {$select_categorys};
+
+    function beforeClick(treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        zTree.checkNode(treeNode, !treeNode.checked, null, true);
+        return false;
+    }
+
+    function onCheck(e, treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+                nodes = zTree.getCheckedNodes(true),
+                v = "";
+        k = "";
+        for (var i=0, l=nodes.length; i<l; i++)
+        {
+            v += nodes[i].name + ",";
+        }
+        if (v.length > 0 ) v = v.substring(0, v.length-1);
+        var cityObj = $("#citySel");
+        cityObj.attr("value", v);
+
+        for (var i=0, l=nodes.length; i<l; i++)
+        {
+            k += nodes[i].id + ",";
+        }
+        if (k.length > 0 ) k = k.substring(0, k.length-1);
+        var cityid = $("#departments");
+        cityid.attr("value", k);
+    }
+
+    function showMenu() {
+        var cityObj = $("#citySel");
+        var cityOffset = $("#citySel").offset();
+        $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+        $("body").bind("mousedown", onBodyDown);
+    }
+    function hideMenu() {
+        $("#menuContent").fadeOut("fast");
+        $("body").unbind("mousedown", onBodyDown);
+    }
+    function onBodyDown(event) {
+        if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+            hideMenu();
+        }
+    }
+
+
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    });
+</SCRIPT>
+</html>

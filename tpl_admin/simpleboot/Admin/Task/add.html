@@ -1,0 +1,42 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+    
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('task/add_post')}">    
+    <div class="rzsp_con">
+    <h3>任务添加</h3>
+    <table class="iloan"> 
+        <tr>
+            <td><label><i>*</i>任务年:</label>                
+                <select name="yearnum" class="w275">
+                    <foreach name="years" item="vo">
+                        <option value="{$vo.id}" >{$vo.name}</option>
+                    </foreach>
+                </select></td> 
+            <td><label><i>*</i>任务月:</label>
+                <select name="monthnum" class="w275">
+                    <foreach name="months" item="vo">
+                        <option value="{$vo.id}" >{$vo.name}</option>
+                    </foreach>
+                </select></td> 
+            
+            <td><label><i>*</i>开始日期:</label><input class="w260 J_date" type="text" name="begintime" value="" /></td>
+            <td><label><i>*</i>结束日期:</label><input class="w260 J_date" type="text" name="endtime" value="" /></td>
+            
+            <td class="page"><label>&nbsp;</label><button type="submit" class="bg_blue J_ajax_submit_btn">保存</button><button type="button" id='close_button' class="bg_red">关闭</button></td>
+        </tr>
+    </table>
+    </div>
+</form>
+    
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('#close_button').click(function(){  
+        //closeapp($("#appiframe-"+"add_task", window.parent.document));
+        close_current_app();
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">    
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('position/category_add_post')}">
+<div class="rzsp_con">
+<h3>新增岗位类别</h3>
+<table class="iloan">
+<tr><th width="140"><i>*</i>类别名称:</th><td><input class="w260" name="name" value="" type="text" /></td></tr>
+<tr><th><i></i>类别描述:</th><td><textarea name="description" placeholder="请输入类别描述" class="w260"></textarea></td></tr>
+<tr><th><i></i>排序:</th><td><input class="w260" name="listorder" value="" type="text" /></td></tr>
+<tr><th>&nbsp;</th><td><button type="submit" class="bg_blue J_ajax_submit_btn">提交</button><button type="button" id='close_button' class="bg_red">返回列表</button></td></tr>
+</table>
+</div>
+</form>    
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('#close_button').click(function(){  
+        //closeapp($("#appiframe-"+"add_position", window.parent.document));
+        close_current_app();
+    });
+});
+</script>
+</body>
+</html>

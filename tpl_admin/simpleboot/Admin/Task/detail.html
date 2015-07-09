@@ -1,0 +1,87 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+    
+<form class="well form-search" method="post" action="{:u('Position/category_index')}">
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon search_tit"></i>快速搜索</h3>
+        <ul class="fr">
+        <li><input class="chaxun" type="submit" value="查询"></li>
+        <li><a href="#" class="search_show"><i class="icon i_show"></i>收起</a></li>
+        </ul>
+    </div>
+    
+    <div class="s_con fl">
+    <ul>
+    <li><em>类别名称：</em><input type="text" name="name" value="{$formget.name}" class="s_btn w150" ></li>
+    </ul>
+    </div>
+</div>
+    
+ <div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>类别列表</h3>
+        <ul class="fr">
+            <!--<li><a href="javascript:openapp_inner('{:U('position/category_add')}','add_category_position','新增分类');" class="add_apply"><i class="icon i_add"></i>新增分类</a></li>-->
+            <li><a href="{:U('position/category_add')}" class="add_apply"><i class="icon i_add"></i>新增分类</a></li>
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>                     
+        </ul>
+    </div>
+    <div class="con_tab fl">
+
+        <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+        <thead>
+            <tr>
+              <th width="25%">类别名称</th>
+              <th width="65%">类别描述</th>
+              <th width="100">管理操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="categorys" item="vo">
+            <tr>
+              <td >{$vo.name}</td>
+              <td >{$vo.description}</td>
+              <td >
+                  <a href="javascript:openapp_inner('{:U('position/category_edit',array('id'=>$vo['id']))}','edit_category_position','修改分类');">修改</a> 
+                  <em></em>
+                  <a class="J_ajax_del" href="{:U('position/category_delete',array('id'=>$vo['id']))}">删除</a>
+              </td>
+            </tr>
+         </foreach>
+        </tbody>
+
+        </table>
+            
+    </div>
+    <div class="pagination fl">{$page}</div>
+
+</div>
+    
+</form>
+     
+  
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('#page_size').change(function(){  
+        //alert($(this).children('option:selected').val()); 
+        $(".form-search").submit();
+    });
+    $(".search_show").click(function(){
+        $(this).html($(".s_con").is(":hidden") ? "<i class='icon i_show'></i>"+"收起" : "<i class='icon i_hide'></i>"+"展开");
+        $(".s_con").slideToggle(); 
+    }); 
+});
+</script>
+</body>
+</html>

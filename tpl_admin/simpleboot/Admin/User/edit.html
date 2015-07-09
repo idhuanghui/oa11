@@ -1,0 +1,95 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div class="rzsp_con">
+<h3>编辑员工信息</h3>
+<form method="post" action="{:U('User/edit_post')}">
+<input type="hidden" name="uid" value="{$user.id}" />
+<table class="iloan">
+<tr><th width="140"><i>*</i>入职部门：</th><td>
+<select class="w275" id="departmentid" name="departmentid">           
+{$select_categorys}                
+</select>
+</td></tr>
+<tr><th><i>*</i>角色：</th><td>
+<select class="w275" name="level">
+<option value="">请选择角色</option>
+<option <if condition="$user.level eq 1"> selected</if> value="1">主管</option>
+<option <if condition="$user.level eq 2"> selected</if> value="2">员工</option>
+</select>
+</td></tr>
+<tr><th><i>*</i>岗位名称：</th><td>
+<select class="w275" id="positionid" name="positionid">
+<!--<option value="{$position.id}" checked>{$position.name}</option>-->
+<foreach name="positions" item="vo">
+<option <if condition="$vo.id eq $user.positionid "> selected</if> value="{$vo.id}">{$vo.name} </option>
+</foreach>
+</select></td></tr> 
+<tr><th><i>*</i>岗位工薪：</th><td><input class="w260" type="text" value="{$user.payroll_try}" name="payroll_try"  /></td></tr>
+<tr><th><i>*</i>姓名：</th><td>{$user.user_realname}<input class="w260" type="hidden"  value="{$user.user_realname}" name="user_realname" readonly /></td></tr>
+<tr><th><i>*</i>性别：</th><td>
+<select class="w275" name="sex">
+<option value="">请选择性别</option>
+<option <if condition="$user.sex eq 1"> selected</if> value="1">男</option>
+<option <if condition="$user.sex eq 2"> selected</if> value="2">女</option>
+</select>
+</td></tr>
+<tr><th><i>*</i>年龄：</th><td><input class="w260" type="text"  value="{$user.age}" name="age"  /></td></tr>
+<tr><th><i>*</i>手机：</th><td><input class="w260" type="text"  value="{$user.user_login}" name="user_login"  /></td></tr>
+<tr><th><i>*</i>身份证号码：</th><td>{$user.idcard}<input class="w260" type="hidden"  value="{$user.idcard}" name="idcard" readonly  /></td></tr>
+<tr><th><i>*</i>户口所在地：</th><td><input class="w260" type="text"  value="{$user.acc_address}" name="acc_address" /></td></tr>
+<tr><th><i>*</i>是否兼职：</th><td>
+<select class="w275" name="temporary">
+<option value="">请选择</option>
+<option <if condition="$user.temporary eq 2"> selected</if> value="{$user.temporary}">全职</option>
+<option <if condition="$user.temporary eq 1"> selected</if> value="{$user.temporary}">兼职</option>
+</select>
+</td></tr>
+<tr><th><i>*</i>汇盈贷账号：</th><td><input class="w260" type="text" value="{$user.hyd_name}" name="hyd_name" /></td></tr>
+<tr><th><i>*</i>工资卡开户银行：</th><td><input class="w260" type="text"  value="{$user.bank_address}" name="bank_address" /></td></tr>
+<tr><th><i>*</i>工资卡开户姓名：</th><td><input class="w260" type="text" value="{$user.bank_user}" name="bank_user" /></td></tr>
+<tr><th><i>*</i>工资卡开户账号：</th><td><input class="w260" type="text" value="{$user.bank_num}" name="bank_num" /></td></tr>
+<tr><th><i>*</i>邮箱：</th><td><input class="w260" type="text" value="{$user.user_email}" name="user_email" /></td></tr>
+<tr><th>入职推荐人：</th><td><input class="w260" type="text" value="{$user.reference}" name="reference" /></td></tr>
+<tr><th><i>*</i>社保归属地：</th><td><input class="w260" type="text" value="{$user.acc_province}" name="acc_province" /></td></tr>
+<tr><th><i>*</i>入职日期：</th><td><input class="w260 J_date" type="text" name="entrydate" value="{$user.entrydate}" /></td></tr>
+<tr><th><i>*</i>学历：</th><td><input class="w260" type="text" value="{$user.education}" name="education" /></td></tr>
+<tr><th><i>*</i>专业：</th><td><input class="w260" type="text" value="{$user.specialty}" name="specialty" /></td></tr>
+<tr><th>&nbsp;</th><td><button type="submit" class="bg_blue">提交</button><button  id='close_button' type="button" class="bg_red">返回列表</button></td></tr> 
+</table>
+</form>
+</div>
+<div class="clear h20"> </div>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#close_button').click(function(){
+            history.go(-1);
+        });
+
+        $("#departmentid").change(function(){
+            $('#positionid').empty();
+            //alert($("#departmentid").val());
+            //$.post("{:U('User/add')}", { departmentid: $("#departmentid").val()} );
+            $.ajax({
+                type:"POST",
+                dataType: "json",//返回json格式的数据
+                url: "{:U('User/relationDeparment')}",
+                data:"departmentid="+$("#departmentid").val(),
+                success:function(msg){
+
+                    var hl = "";
+
+                    $.each(msg, function(i, n){
+
+                        hl += "<option value="+n.id+">" + n.name + "</option>";
+
+                    });
+                    $("#positionid").html(hl);
+                }
+            });
+        })
+
+    });
+</script>
+</body>
+</html>

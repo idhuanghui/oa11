@@ -1,0 +1,270 @@
+[ 2015-06-29T09:07:02+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = 'admin' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0220s ]
+SQL: UPDATE `oa_users` SET `user_login`='admin',`user_pass`='d30ef5b035378f9bc42b0689c2375723ed7f31aa64990b97',`user_realname`='admin',`user_email`='admin@abc.com',`idcard`='',`avatar`=NULL,`sex`='0',`acc_province`='0',`acc_city`='0',`acc_address`='',`departmentid`='0',`positionid`='0',`level`='0',`temporary`='0',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='0000-00-00',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435540022',`create_time`='2015-02-26',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='',`hyd_id`='0',`user_type`='1' WHERE `id` = 1 [ RunTime:0.0020s ]
+
+[ 2015-06-29T09:47:28+08:00 ] 127.0.0.1 /index.php?g=Admin&m=User&a=index&menuid=149
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-06-29T09:47:32+08:00 ] 127.0.0.1 /index.php?g=&m=User&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-06-29T09:47:49+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = '18663161789' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0030s ]
+SQL: UPDATE `oa_users` SET `user_login`='18663161789',`user_pass`='d30ef5b03537421bc1da4441cdd6de9049f2e43b53910b97',`user_realname`='白毅',`user_email`='',`idcard`='',`avatar`=NULL,`sex`='1',`acc_province`='',`acc_city`='',`acc_address`='',`departmentid`='26',`positionid`='35',`level`='2',`temporary`='2',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='2014-09-01',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435542469',`create_time`='',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='白易',`hyd_id`='4473',`user_type`='2' WHERE `id` = 81 [ RunTime:0.0010s ]
+
+[ 2015-06-29T09:47:53+08:00 ] 127.0.0.1 /index.php?g=Admin&m=SalesCount&a=index&menuid=368
+NOTIC: D方法实例化没找到模型类Common\Model\HydInvestmentModel
+
+[ 2015-06-29T09:48:12+08:00 ] 127.0.0.1 /index.php?g=&m=Rbac&a=authorize&id=2
+NOTIC: D方法实例化没找到模型类Common\Model\AuthAccessModel
+
+[ 2015-06-29T09:48:27+08:00 ] 127.0.0.1 /index.php?g=&m=Rbac&a=authorize_post
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `oa_users` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `oa_role` [ RunTime:0.0030s ]
+NOTIC: D方法实例化没找到模型类Common\Model\AuthAccessModel
+SQL: SHOW COLUMNS FROM `oa_auth_access` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `oa_menu` [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `oa_auth_rule` [ RunTime:0.0020s ]
+SQL: DELETE FROM `oa_auth_access` WHERE `role_id` = 2 AND `type` = 'admin_url' [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 39 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/extension/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 40 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/backup/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 41 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/backup/restore','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 42 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/backup/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 43 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/backup/index_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 44 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/backup/download','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 45 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/backup/del_backup','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 46 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/backup/import','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 85 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 100 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/index','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 101 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/add','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 102 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/add_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 103 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/listorders','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 104 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/export_menu','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 105 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/edit','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 106 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/edit_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 107 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/delete','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 108 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/menu/lists','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 109 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/setting/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 131 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/setting/clearcache','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 133 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 226 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/listorders','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 224 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/edit','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 225 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/edit_post','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 223 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/delete','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 222 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/add_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 221 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/add','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 220 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/lists','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 242 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/position_add','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 243 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/department/position_add_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 139 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/position/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 232 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/position/delete','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 230 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/position/edit','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 231 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/position/edit_post','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 228 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/position/add','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 229 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/position/add_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 140 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 141 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/member','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 142 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/authorize','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 143 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/authorize_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 144 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/roleedit','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 145 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/roleedit_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 146 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/roledelete','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 147 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/roleadd','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 148 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/roleadd_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 132 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','user/indexadmin/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 149 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 150 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/delete','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 151 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/edit','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 152 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/edit_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 153 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/add','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 154 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/add_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 234 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/info','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 249 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/authuser','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 250 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/rbac/authuser_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 307 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/password','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 308 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/password_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 317 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/leave/applyedit','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 318 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/leave/applyedit_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 321 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/user/resetpasswd','admin_url') [ RunTime:0.0010s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 322 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/excel/to_excel','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 327 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/entry/cancelentry','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 197 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/entry/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 219 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/entry/edit','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 227 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/entry/edit_post','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 245 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/leave/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 398 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/task/add','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 365 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/sales/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 381 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/countinvestment/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 380 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/countdata/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 368 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/salescount/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 404 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/achievements/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 374 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/customer/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 378 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/customerwithdrawals/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 330 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/sales/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 376 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/customerrepay/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 375 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/customerrecharge/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 377 LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/customer/index','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 403 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/task/default','admin_url') [ RunTime:0.0000s ]
+SQL: SELECT `app`,`model`,`action` FROM `oa_menu` WHERE `id` = 397 LIMIT 1   [ RunTime:0.0000s ]
+SQL: INSERT INTO `oa_auth_access` (`role_id`,`rule_name`,`type`) VALUES ('2','admin/task/index','admin_url') [ RunTime:0.0000s ]
+
+[ 2015-06-29T09:48:27+08:00 ] 127.0.0.1 /index.php?g=&m=Rbac&a=authorize&id=2
+NOTIC: D方法实例化没找到模型类Common\Model\AuthAccessModel
+
+[ 2015-06-29T09:48:40+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Achievements&a=index&menuid=404
+ERR: Think\Controller:getAllDepartments方法不存在！
+
+[ 2015-06-29T10:06:41+08:00 ] 127.0.0.1 /index.php?g=Admin&m=Department&a=index&menuid=133
+NOTIC: D方法实例化没找到模型类Common\Model\AuthRuleModel
+
+[ 2015-06-29T10:09:16+08:00 ] 127.0.0.1 /index.php?g=Admin&m=User&a=index&menuid=149
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-06-29T10:09:20+08:00 ] 127.0.0.1 /index.php?g=&m=User&a=index
+NOTIC: D方法实例化没找到模型类Common\Model\AuthUserModel
+
+[ 2015-06-29T10:09:29+08:00 ] 127.0.0.1 /index.php?g=&m=public&a=dologin
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `oa_users` WHERE `user_login` = '18663161789' AND ( `user_status` <> 'E11' AND `user_status` <> 'E21' AND `user_status` <> 'E3'  ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: D方法实例化没找到模型类Common\Model\RoleUserModel
+SQL: SHOW COLUMNS FROM `oa_role_user` [ RunTime:0.0030s ]
+SQL: UPDATE `oa_users` SET `user_login`='18663161789',`user_pass`='d30ef5b03537421bc1da4441cdd6de9049f2e43b53910b97',`user_realname`='白毅',`user_email`='',`idcard`='',`avatar`=NULL,`sex`='1',`acc_province`='',`acc_city`='',`acc_address`='',`departmentid`='26',`positionid`='35',`level`='2',`temporary`='2',`ispart`='',`payroll_try`=NULL,`payroll`=NULL,`entrydate`='2014-09-01',`reference`='',`education`='',`school`='',`specialty`='',`mobile`='',`last_login_ip`='127.0.0.1',`last_login_time`='1435543769',`create_time`='',`bank_address`='',`bank_user`=NULL,`bank_num`=NULL,`user_status`='E',`age`='0',`hyd_name`='白易',`hyd_id`='4473',`user_type`='2' WHERE `id` = 81 [ RunTime:0.0010s ]
+
+[ 2015-06-29T10:24:21+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: Think\Controller:getParents方法不存在！
+
+[ 2015-06-29T10:25:33+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: Think\Controller:getParents方法不存在！
+
+[ 2015-06-29T10:25:48+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: Think\Controller:getParents方法不存在！
+
+[ 2015-06-29T10:26:30+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: Think\Controller:getParents方法不存在！
+
+[ 2015-06-29T10:27:22+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: Think\Controller:getParents方法不存在！
+
+[ 2015-06-29T10:28:08+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: Think\Model:getParents方法不存在！
+
+[ 2015-06-29T10:29:18+08:00 ] 127.0.0.1 /index.php?g=&m=Achievements&a=index
+ERR: Think\Model:getParents方法不存在！
+
+[ 2015-06-29T17:19:09+08:00 ] 127.0.0.1 /index.php?g=&m=task&a=delete&id=12
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: Run Behavior\CheckLangBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() D:\WWW\oa\simplewind\Core\Common\functions.php 第 1261 行.
+SQL: SHOW COLUMNS FROM `oa_users` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `oa_users` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `oa_task` [ RunTime:0.0040s ]
+SQL: DELETE FROM `oa_task` WHERE ( id=12 ) [ RunTime:0.0370s ]
+

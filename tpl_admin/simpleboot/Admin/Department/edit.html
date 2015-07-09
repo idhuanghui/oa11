@@ -1,0 +1,179 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('Department/edit_post')}">
+<div class="rzsp_con"><input type="hidden" name="id" value="{$data.id}" /><input name="level" id="level" value="0" type="hidden" />
+<h3>编辑部门</h3>
+<table class="iloan">
+<tr><th width="140"><i>*</i>部门名称:</th><td><input type="text" class="w260" name="name" value="{$data.name}"></td></tr>
+<tr><th><i>*</i>所属上级:</th><td><select name="parentid" id="parentid" class="w275" onclick='javascript:checklevel(this);'>
+<option value="0">作为一级部门</option>
+{$select_categorys}
+</select></td></tr>
+<!-- 
+<tr id='ul_ishead'><th><i>*</i>是否为总部:</th><td class="iloan_radio">          	
+<php>$active_true_checked=($data['ishead'] ==1)?"checked":"";</php><input type="radio" name="ishead" value="1" {$active_true_checked} /><em>是</em>
+<php>$active_false_checked=($data['ishead'] ==0)?"checked":"";</php><input type="radio" name="ishead" value="0" id="active_false" {$active_false_checked}><em>否</em>
+</td></tr>
+<tr>
+<th>城市:</th>
+<td><input type="text" class="input" name="provinceid" id="" value="{$data.provinceid}"> <input type="text" class="input" name="cityid" id="" value="{$data.cityid}"></td>
+</tr>
+-->
+<tr id='ul_ishr'><th><i>*</i>是否为人事部:</th><td class="iloan_radio">                
+<php>$active_true_checked=($data['ishr'] ==1)?"checked":"";</php><input type="radio" name="ishr" value="1" {$active_true_checked} /><em>是</em>          
+<php>$active_false_checked=($data['ishr'] ==0)?"checked":"";</php><input type="radio" name="ishr" value="0" id="active_false" {$active_false_checked}><em>否</em>      
+</td></tr>
+<tr id='ul_isfinance'><th><i>*</i>是否为财务:</th><td class="iloan_radio">                
+<php>$active_true_checked=($data['isfinance'] ==1)?"checked":"";</php><input type="radio" name="isfinance" value="1" {$active_true_checked} /><em>是</em>
+<php>$active_false_checked=($data['isfinance'] ==0)?"checked":"";</php><input type="radio" name="isfinance" value="0" id="active_false" {$active_false_checked}><em>否</em>
+</td></tr>
+<tr id='ul_header'><th id="header_label"><i>*</i>负责人:</th><td>
+    <input type="hidden" name="header" id="header" value="{$data.header}">
+    <input type="text" class="w260" readonly name="header_name" id="header_name" value="{$data.header_name}">
+</td> </tr>
+<tr id='ul_manager'><th><i>*</i>督导:</th><td>
+    <input type="hidden" name="manager" id="manager" value="{$data.manager}">    
+    <input type="text" class="w260" name="manager_name" id="manager_name" value="{$data.manager_name}">
+</td></tr>
+<tr id='ul_position_category'><th><i>*</i>岗位组:</th><td><select name="position_category" class="w275">
+<option value="0">请选择岗位类别</option>
+<foreach name="position_categorys" item="vo">  
+<option value="{$vo.id}" <php>echo $data['position_category']==$vo['id']?"selected":""</php> >{$vo.name}</option>
+</foreach>
+</select></td></tr>
+<tr id='ul_cuttype'><th><i>*</i>提成发放方式:</th><td>
+<select name="cuttype" class="w275">
+    <option value="0">请选择提成发放方式</option>
+    <option value="1" <php>echo $data['cuttype']==1?"selected":""</php> >线上</option>
+    <option value="2" <php>echo $data['cuttype']==2?"selected":""</php> >线下</option>
+</select></td></tr>
+<tr><th>备注:</th><td><textarea name="description" class="w260">{$data.description}</textarea></td></tr>
+<tr><th>&nbsp;</th><td><button type="submit" class="bg_blue J_ajax_submit_btn">提交</button><button type="button" id='close_button' class="bg_red">返回列表</button></td></tr>
+</table> 
+</div>
+</form>
+    
+<!--tanchuang start-->
+<div id="layer" class="js_layer w380">
+<h3><a href="javascript:void(0)"><i class="icon i_close close"></i></a>负责人</h3>
+<div class="head_box">
+<ul class="layer_search">
+<li><input type="text" id="layer_search_name" class="w245 seartxt" placeholder="输入姓名"></li>
+<li><input type="button" class="chaxun" value="查&nbsp;询" ></li>
+</ul>
+    
+<table id="datas" class="head_tab">
+<thead>
+<tr>
+<th width="4%">&nbsp;</th>
+<th width="32%">员工姓名</th>
+<th width="32%">所属部门</th>
+<th width="32%">手机号码</th>
+</tr>
+</thead>
+<tbody>
+</tbody>        
+</table>           
+</div>
+<div class="la_foot">
+<button type="submit" id="submit_check" class="bg_blue">确定</button>
+<button type="button" class="bg_red close">关闭</button>
+</div>
+</div>
+<div class="layer_mask"></div>
+<!--tanchuang end-->
+<script src="__ROOT__/statics/js/common.js"></script>
+<script>
+    $(document).ready(function () {
+	$('#header_name,#manager_name').click(function(){
+            $('.layer_mask').fadeIn();
+            $('.js_layer').fadeIn();
+	});
+        
+	$('.js_layer .close').click(function(){
+            $('.layer_mask').fadeOut();
+            $('.js_layer').fadeOut();
+	});
+
+        $('#submit_check').click(function(){
+            //alert($("#datas :radio:checked").val());
+            if($("#datas :radio:checked").val()){
+                //alert($("#datas :radio:checked").attr('who'));
+                
+                $("#header").val($("#datas :radio:checked").val());
+                $("#header_name").val($("#datas :radio:checked").attr('who'));
+                $("#manager").val($("#datas :radio:checked").val());
+                $("#manager_name").val($("#datas :radio:checked").attr('who'));
+                
+                $('.layer_mask').fadeOut();
+                $('.js_layer').fadeOut();
+            }
+            
+        });
+        $('.chaxun').click(function(){
+            var uname = $('#layer_search_name').val();
+            if(uname.length>1){
+                $.ajax({
+                    type:'POST',
+                    dataType: "json",//返回json格式的数据
+                    url:"{:U('Department/users_search')}",
+                    data:'name='+uname,
+                    //complete:function(){$("#load").hide();},//AJAX请求完成时隐藏loading提示
+                    success: function(msg){ //alert(msg);
+                        $('#datas tbody').empty();
+                        $.each(msg, function(i, n){
+ 
+                            var tr = $("<tr></tr>"); 
+                            tr.append($("<td></td>").html("<input type='radio' value='"+n.id+"' who='"+n.user_realname+"' name='userid'>")); 
+                            tr.append($("<td></td>").html(n.user_realname));
+                            tr.append($("<td></td>").html(n.department_name)); 
+                            tr.append($("<td></td>").html(n.user_login)); 
+                            tr.appendTo("#datas tbody");
+
+                        });
+                    }
+                });
+            }
+        });
+        
+        
+        $('#close_button').click(function(){  
+            //close_current_app();
+            history.go(-1);
+        });
+        checklevel();
+    });
+    function checklevel(){
+        var label = "负责人";
+        var select_value = $("#parentid").find("option:selected").val(); //alert(select_value);
+        if(select_value==0){
+            label = "区域经理";
+        }
+        var select_text = $("#parentid").find("option:selected").text();
+        
+        if(select_text.indexOf('└')!=-1 || select_text.indexOf('├')!=-1){ //修改团队时
+            //alert(select_text.indexOf('└'));
+            $("#ul_header").hide();
+            $("#ul_ishr").show();
+            $("#ul_isfinance").show();
+            $("#ul_manager").show();
+            $("#ul_position_category").show();
+            $("#ul_cuttype").show();
+            $("#level").val(2);
+        }else{
+            if(select_value!=0){
+                label = "城市经理";
+            }
+            $("#ul_header").show();
+            $("#ul_ishr").hide();
+            $("#ul_isfinance").hide();
+            $("#ul_manager").hide();
+            $("#ul_position_category").hide();
+            $("#ul_cuttype").hide();
+            $("#level").val(0);
+        }
+        $("#header_label").html("<i>*</i>"+label);
+    }
+</script>
+</body>
+</html>

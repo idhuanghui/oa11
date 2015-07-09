@@ -1,0 +1,39 @@
+*{margin:0;padding:0;}
+body{ position:relative; height:100%; background:url("../images/login_bg.jpg") top center no-repeat;  font:12px "microsoft yahei",arial;    }
+h1,h2,h3,th,td{ font-weight:normal;}
+input,button{ font-family:"microsoft yahei",arial;  }
+ul,li{ list-style:none;}
+
+.wrapper{ position:absolute; left:50%; margin-top:11%; margin-left:105px; width: 295px; padding:25px; background:rgba(255, 255, 255, 0.8)!important; filter:Alpha(opacity=80); background:#fff;  border-radius:3px;  }
+.wrapper h1{ text-align:center; padding:15px 0px; }
+.wrapper h1 img{ width:124px;}
+.wrapper h2{ padding-bottom:15px; font-size:14px; color:#3388cb; height:20px; line-height:20px; text-align:center; position:relative; left:0px;   }
+.wrapper h2 em,.wrapper h2 span{ width:43px; height:1px; background-color:#3388cb; position:absolute;  top:10px; }
+.wrapper h2 em{ left:0px; margin-left:0pz;}
+.wrapper h2 span{ right:0px; }
+.signin li {position:relative ; padding-bottom:15px; }
+.signin li .i_input { width:91%; height: 28px; padding: 5px 0px;  border: 1px solid #d6d6d6;  border-radius:3px;     }
+.signin li .i_input { padding-left:8%; color:#929090; }
+.signin li .i_input:focus { background-color:#fff; border-color: #a3d5fb; border-radius:3px; 
+-webkit-box-shadow: 0 0 0 0 #a3d5fb, 0 0 2px 0 #a3d5fb;
+-moz-box-shadow: 0 0 0 0 #a3d5fb, 0 0 2px 0 #a3d5fb;
+box-shadow: 0 0 0 0 #a3d5fb, 0 0 2px 0 #a3d5fb;
+}
+.signin li .code{ width:58%}
+.signin li  img{ float:right; border:1px solid #d6d6d6; height:38px; width:87px;    }
+.signin li span {position: absolute; left:7px; top:13px; width:14px; height:14px;    display: inline-block;}
+.signin .submit { border:0;  width:100%; border-radius: 3px;  height:40px; text-align:center; line-height:40px;  display: block; background-color: #3388cb; color: #fff; font-size: 16px;cursor: pointer;}
+.signin .submit:hover{  opacity:0.85; }
+.signin .check{ height:13px; font-size:12px; color: #7a7979; position:relative; }
+.signin .check label{ position:absolute; left:16px; top:-2px;    }
+.signin .tips_error{color:#ff6600;}
+.icon { background:url("../images/icon.png");  }
+.i_mobile{ background-position:0px 0px; }
+.i_pass{ background-position:0px -14px; }
+.i_code{ background-position:0px -28px; }
+.icheckbox_square{ margin: 0;padding: 0;width: 13px;height: 13px;background: url("../images/icon.png") no-repeat;border: none;cursor: pointer; }
+.icheckbox_square { background-position: -53px 0;}
+.icheckbox_square.hover { background-position: -67px 0;}
+.icheckbox_square.checked {background-position: -81px 0; }
+.icheckbox_square.disabled {background-position: -95px 0; cursor: default;  }
+.icheckbox_square.checked.disabled { background-position: -109px 0; }

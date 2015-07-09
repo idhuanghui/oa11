@@ -1,0 +1,53 @@
+<admintpl file="header"/>
+<body>
+<div class="rzsp_con">
+<h3>入职审批</h3>
+<form class="well form-search" method="post" action="{:U('Entry/edit_post')}">
+<input type="hidden" name="userid" value="{$user['id']}" />
+<table class="iloan_des">
+<tr><th width="140">入职部门：</th><td>{$user.area_department}<em>{$user.city_department}</em><em>{$user.dname}</em></td></tr>
+<tr><th>角色：</th><td>
+<if condition="$user['level'] eq 1">
+<font color="#a52a2a">主管</font>
+<else />
+员工
+</if>
+</td></tr>
+<tr><th>岗位名称：</th><td>{$user.pname}</td></tr>
+<tr><th>岗位工薪：</th><td>{$user.payroll_try}元</td></tr>
+<tr><th>姓名：</th><td>{$user.user_realname}</td></tr>
+<tr><th>性别：</th><td>
+<if condition="$user['sex'] eq 1">
+男
+<else />
+女
+</if>
+</td></tr>
+<tr><th>年龄：</th><td>{$user.age}</td></tr>
+<tr><th>手机：</th><td>{$user.user_login}</td></tr>
+<tr><th>身份证号码：</th><td>{$user.idcard}</td></tr>
+<tr><th>户口所在地：</th><td>{$user.acc_address}</td></tr>
+<tr><th>是否兼职：</th><td>
+<if condition="$user['temporary'] eq 1">
+兼职
+<else />
+全职
+</if>
+</td></tr>
+<tr><th>汇盈贷账号：</th><td>{$user.hyd_name}</td></tr>
+<tr><th>工资卡开户银行：</th><td>{$user.bank_address}</td></tr>
+<tr><th>工资卡开户姓名：</th><td>{$user.bank_user}</td></tr>
+<tr><th>工资卡开户账号：</th><td>{$user.bank_num}</td></tr>
+<tr><th>邮箱：</th><td>{$user.user_email}</td></tr>
+<tr><th>推荐人：</th><td>{$user.reference}</td></tr>
+<tr><th>社保归属地：</th><td>{$user.acc_province}</td></tr>
+<tr><th>入职日期：</th><td>{$user.entrydate}</td></tr>
+<tr><th>学历：</th><td>{$user.education}</td></tr>
+<tr><th>专业：</th><td>{$user.specialty}</td></tr>
+<tr><th>备注： </th><td><input type="text" class="w240" name="remark"></td></tr>
+<tr><th>&nbsp;</th><td>{$ex1}{$ex2}</td></tr>
+</table>
+</form>
+</div>
+</body>
+</html>

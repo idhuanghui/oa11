@@ -1,0 +1,122 @@
+<admintpl file="header"/>
+<body>
+<script src="__ROOT__/statics/js/jquery-1.8.3.min.js"></script>
+<script src="__ROOT__/statics/js/Validate.js"></script>
+<script src="__ROOT__/statics/js/Validate.form.js"></script>
+<div class="rzsp_con">
+<h3>新增入职申请</h3>
+<form id="signupForm" method="post" class="form-horizontal J_ajaxForm" action="{:U('User/add_post')}" onSubmit="return false;">
+<if condition="$user['role_id'] eq 1">
+<input type="hidden" name="user_status" value="E" />
+<elseif condition="session('ADMIN_ID') eq 1" />
+<input type="hidden" name="user_status" value="E" />
+<else />
+<input type="hidden" name="user_status" value="E1" />
+</if>
+<table class="iloan">
+<tr><th width="140"><i>*</i>入职部门：</th><td>
+<select class="w275" id="departmentid" name="departmentid">
+<option value="" selected>请选择部门</option>
+{$select_categorys}
+</select>
+</td></tr>
+<tr><th><i>*</i>角色：</th><td>
+<select class="w275" name="level">
+<option value="">请选择角色</option>
+<option value="1">主管</option>
+<option value="2">员工</option>
+</select>
+</td></tr>
+<tr><th><i>*</i>岗位名称：</th><td><select name="positionid" id="positionid" class="w275"><option value="" selected>请选择岗位</option></select></td></tr>
+<tr><th><i>*</i>岗位工薪：</th><td><input class="w260" type="text" name="payroll_try" id="payroll_try" /></td></tr>
+<tr><th><i>*</i>汇盈贷账号：</th><td><input class="w260" type="text" name="hyd_name" id="hyd_name" /><span id="hyd_name_error" style="color: red; display: none;">(请输入正确的汇盈贷账号!)</span></td></tr>
+<tr><th><i>*</i>姓名：</th><td><input class="w260" type="text" name="user_realname" id="user_realname" readonly /></td></tr>
+<!--<tr><th><i>*</i>身份证号码：</th><td><input class="w260" type="text" name="idcard" readonly /></td></tr>-->
+<tr><th><i>*</i>身份证号码：</th><td><input class="w260" type="text" id="idcard" readonly /></td></tr>
+<tr><th><i>*</i>性别：</th><td>
+<select class="w275" name="sex">
+<option value="">请选择性别</option>
+<option value="1">男</option>
+<option value="2">女</option>
+</select>
+</td></tr>
+<tr><th><i>*</i>年龄：</th><td><input class="w260" type="text" name="age" /></td></tr>
+<tr><th><i>*</i>手机：</th><td><input id="user_login" class="w260" type="text" name="user_login" /></td></tr>
+<tr><th><i>*</i>户口所在地：</th><td><input class="w260" type="text" name="acc_address" /></td></tr>
+<tr><th><i>*</i>是否兼职：</th><td>
+<select class="w275" name="temporary">
+<option value="">请选择</option>
+<option value="2">全职</option>
+<option value="1">兼职</option>
+</select>
+</td></tr>
+<tr><th><i>*</i>工资卡开户银行：</th><td><input class="w260" type="text" name="bank_address" /></td></tr>
+<tr><th><i>*</i>工资卡开户姓名：</th><td><input class="w260" type="text" name="bank_user" /></td></tr>
+<tr><th><i>*</i>工资卡开户账号：</th><td><input class="w260" type="text" name="bank_num" /></td></tr>
+<tr><th><i>*</i>邮箱：</th><td><input class="w260" type="text" name="user_email" /></td></tr>
+<tr><th>入职推荐人：</th><td><input class="w260" type="text" name="reference" /></td></tr>
+<tr><th><i>*</i>社保归属地：</th><td><input class="w260" type="text" name="acc_province" /></td></tr>
+<tr><th><i>*</i>入职日期：</th><td><input class="w260 J_date" type="text" name="entrydate" placeholder="2013-01-04" /></td></tr>
+<tr><th><i>*</i>学历：</th><td><input class="w260" type="text" name="education" /></td></tr>
+<tr><th><i>*</i>专业：</th><td><input class="w260" type="text" name="specialty" /></td></tr>
+<tr><th>&nbsp;</th><td><button class="bg_blue J_ajax_submit_btn" type="submit">提交</button><button  id='close_button' class="bg_red" type="button">返回列表</button></td></tr>
+</table>
+<div id="errors"></div>
+</form>
+</div>
+<div class="clear h20"><br /></div>
+</body>
+</html>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#close_button').click(function(){
+            history.go(-1);
+        });
+
+        $("#departmentid").change(function(){
+            $('#positionid').empty();
+            $.ajax({
+                type:"POST",
+                dataType: "json",//返回json格式的数据
+                url: "{:U('User/relationDeparment')}",
+                data:"departmentid="+$("#departmentid").val(),
+                success:function(msg){
+                        var hl = "";
+                            hl = "<option value=''>请选择岗位</option>";
+                        $.each(msg, function(i, n){
+                            hl += "<option value="+n.poid+">" + n.poname + "</option>";
+                        });
+                        $("#positionid").html(hl);
+                }
+            });
+        });
+
+        $("#hyd_name").focusout(function(){
+            $.ajax({
+                type:"POST",
+                url :"{:U('User/getHydUser')}",
+                data: "username="+$("#hyd_name").val(),
+                success:function(date){
+                    var obj = $.parseJSON(date);
+                    if(obj.error == 0){
+                        $("#hyd_name_error").hide();
+                        $("#user_realname").val(obj.data.truename);
+                        $("#idcard").val(obj.data.idcard);
+                    }else{
+                        $("#user_realname").val('');
+                        $("#idcard").val('');
+                        $("#hyd_name_error").show();
+                    }
+                }
+            });
+        });
+
+    });
+    
+//<![CDATA[
+/*------ 注册验证 ------*/
+
+//]]>
+</script>

@@ -1,0 +1,327 @@
+<admintpl file="header"/>
+<link href="__ROOT__/statics/simpleboot/css/zTreeStyle.css" rel="stylesheet">
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.excheck-3.5.js"></script>
+<body>
+<div id="find_pwd"></div>
+<div id="s_export"><span>正在导出Excel...</span></div>
+<div class="js_search"><span><img src="__ROOT__/statics/simpleboot/images/search.gif"></span></div>
+
+<form class="well form-search" method="post" action="{:U('User/index')}">
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon search_tit"></i>快速搜索</h3>
+        <ul class="fr">
+            <li><input class="chaxun" type="submit" value="查询"></li>
+            <!--<li><a id="import"  href="{:U('user/import')}"><i class="fa fa-share"></i>导入</a></li>-->
+			<li><a id="import" class="js_import"  href="javascript:void(0)"><i class="fa fa-share"></i>导入</a></li>
+            <li><a id="exploder"href="javascript:void(0)"><i class="fa fa-reply"></i>导出<input id="explode" name="explode" type="hidden"  value="1" ></a></li>
+            <li><a href="javascript:void(0)" class="search_show"><i class="fa fa-chevron-down"></i>收起</a></li>
+        </ul>
+    </div>
+    <div class="s_con fl">
+        <ul>
+            <li><em>分部：</em>
+                <div class="btn_sel w180">
+                <input id="citySel"  type="text" name="departmentname" value="{$formget.departmentname}" class="no_border"  readonly onClick="showMenu();" ><i onClick="showMenu();"></i>
+                </div>
+                <input id="departments" name="departmentid"  type="hidden"  value="{$formget.departmentid}" >
+                <div id="menuContent" class="menuContent">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </li>
+            <!--<li><em>团队：</em>-->
+                <!--<select class="w100" name="">-->
+                    <!--<option value="">全部</option>-->
+                    <!--<option>董事办</option>-->
+                    <!--<option>运营部</option>-->
+                <!--</select>-->
+            <!--</li>-->
+            <li><em>角色：</em>
+                <select class="w80" name="level">
+                    <option value="">全部</option>
+                    <option value="1" <php>echo $formget['level']==1?"selected":""</php>>主管</option>
+                    <option value="2" <php>echo $formget['level']==2?"selected":""</php>>职员</option>
+                </select>
+            </li>
+            <li><em>姓名：</em><input type="text" class="s_btn w100" value="{$formget.user_realname}" name="user_realname" /></li>
+            <li><em>手机：</em><input type="text" class="s_btn w100" value="{$formget.user_login}" name="user_login" /></li>
+            <li><em>是否兼职：</em>
+                <select class="w80" name="temporary">
+                    <option value="">全部</option>
+                    <option value="2" <php>echo $formget['temporary']==2?"selected":""</php> >全职</option>
+                    <option value="1" <php>echo $formget['temporary']==1?"selected":""</php> >兼职</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>员工列表</h3>
+        <ul class="fr">
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div class="con_tab fl">
+        <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <thead>
+            <tr>
+                <th width="6%">员工编号</th>
+                <th width="8%">二级分部</th>
+                <th width="7%">城市经理</th>
+                <th width="9%">团队名称</th>
+                <th width="6%">姓名</th>
+                <th width="6%">角色</th>
+                <th width="8%">岗位名称</th>
+                <th class="t_center" width="7%">手机</th>
+                <th class="t_center" width="8%">入职日期</th>
+                <th class="t_center" width="7%">是否兼职</th>
+                <th width="9%">汇盈贷账号</th>
+                <th class="t_center" width="19%">操 作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="users" item="vo">
+            <tr>
+                <td>HYD{:strPad($vo['id'])}</td>
+                <td>{$vo.city_department}</td>
+                <td>{$vo.city_header}</td>
+                <td>{$vo.dname}</td>
+                <td>
+                    {$vo.user_realname}
+                </td>
+                <td>
+                    <if condition="$vo['level'] eq 1">
+                         主管
+                        <else />
+                        员工
+                    </if>
+                </td>
+                <td>
+                    {$vo.pname}
+                </td>
+                <td class="t_center">{$vo.user_login}</td>
+                <td class="t_center">{$vo.entrydate}</td>
+                <td class="t_center">
+                    <if condition="$vo['temporary'] eq 2">
+                        全职
+                        <else />
+                        兼职
+                    </if>
+                </td>
+                <td>{$vo.hyd_name}</td>
+                <td class="t_center">
+                    <if condition="$vo['id'] eq 1">
+                        <span class="color_blue">编辑</span><em></em>
+                        <span class="color_blue">删除</span>
+                    <else />
+                        <if condition="$ishr eq 1">
+                            <a href="{:U('User/info',array('id'=>$vo['id']))}">详细</a><em></em>
+                            <a href="{:U('user/edit',array('id' => $vo['id']))}">编辑</a><em></em>
+                            <a href="javascript:password_set('{$vo[id]}');" class="pwd_put">重置密码</a><em></em>
+                            <a href="{:U('Leave/applyEdit',array('id'=>$vo['id']))}">离职</a>
+                        <elseif condition="session('ADMIN_ID') == 1 or $isadm eq 1" />
+                            <a href="javascript:synchronous_set('{$vo[id]}');" class="pwd_put">同步</a><em></em>
+                            <a href="{:U('Rbac/authuser',array('id'=>$vo['id']))}">用户授权</a><em></em>
+                            <a href="{:U('User/info',array('id'=>$vo['id']))}">详细</a><em></em>
+                            <a href="{:U('user/edit',array('id' => $vo['id']))}">编辑</a><em></em>
+                            <a href="javascript:password_set('{$vo[id]}');" class="pwd_put">重置密码</a><em></em>
+                            <a href="{:U('Leave/applyEdit',array('id'=>$vo['id']))}">离职</a>
+                        <elseif condition="session('ADMIN_ID') eq $vo['id']" />
+                            <a href="{:U('User/info',array('id'=>$vo['id']))}">详细</a>
+                        </if>
+                    </if>
+                </td>
+            </tr>
+            </foreach>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination fl">
+        {$page}
+    </div>
+</div>
+</form>
+<div class="clear h20"> </div>
+<div class="layer_mask"></div>
+<!--导入数据 start-->
+<form id="addform" action="{:U('user/upload')}" method="post" enctype="multipart/form-data">
+<!--<input name="id" type="hidden" value="{$goods_info.id}" />-->
+<div id="layer" class="js_layer_import wplf w460">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>导入Excel</h3>
+<div class="iloan_box">
+<table class="iloan"> 
+<tr><th width="90">Excel表格</th><td><input type="file" name="excelData" value=""  class="w260"  datatype="*4-50"  nullmsg="选择Excel表格！" errormsg=""/><span class="Validform_checktip"></span></td> </tr>
+</table>
+</div>
+<div class="la_foot">
+<input type="submit" class="bg_blue" value="导入" />
+<button type="button" id='close_button'  class="bg_red i_close">关闭</button>
+</div>
+</div>
+</form> 
+<!--导入数据 end--> 
+
+<!--导出数据 start-->
+<div id="layer" class="js_layer_export wplf w460">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>提示</h3>
+<div class="iloan_box"><h4>您确定要导出Excel吗?</h4></div>
+<div class="la_foot">
+<input type="submit" class="bg_blue " value="是" />
+<button type="button" id='close_button'  class="bg_red i_close">否</button>
+</div>
+</div>
+<!--导出数据 end--> 
+
+
+<script type="text/javascript" src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {	
+	$('.js_import').click(function(){
+		$('.layer_mask').fadeIn();
+		$('.js_layer_import').fadeIn();
+	})
+	$('.js_layer_import .i_close').click(function(){
+		$('.layer_mask').fadeOut();
+		$('.js_layer_import').fadeOut();
+	})	
+	$('#exploder').click(function(){
+		$('.layer_mask').fadeIn();
+		$('.js_layer_export').fadeIn();
+	})	
+	$('.js_layer_export .i_close').click(function(){
+		$('.layer_mask').fadeOut();
+		$('.js_layer_export').fadeOut();
+	})	
+});
+function password_set(id){
+        $.ajax({
+            type:'POST',
+            url:"{:U('User/resetPasswd')}",
+            data:'id='+id,
+            success: function(msg){
+                $("#find_pwd").fadeIn("slow").fadeOut(2800).html("<span>"+msg+"</span>");
+            }
+
+        });
+    };
+    $(".search_show").click(function(){
+        $(this).html($(".s_con").is(":hidden") ? "<i class='fa fa-chevron-down'></i>"+"收起" : "<i class='fa fa-chevron-up'></i>"+"展开");
+        $(".s_con").slideToggle();
+    });
+
+    function synchronous_set(id){
+        $.ajax({
+            type:'POST',
+            url:"{:U('User/synchronousInfo')}",
+            data:'id='+id,
+            success: function(msg){
+                $("#find_pwd").fadeIn("slow").fadeOut(2800).html("<span>"+msg+"</span>");
+            }
+
+        });
+    };
+</script>
+
+<SCRIPT type="text/javascript">
+
+    var setting = {
+        check: {
+            enable: true
+        },
+        view: {
+            dblClickExpand: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            beforeClick: beforeClick,
+            onCheck: onCheck
+        }
+    };
+
+    var zNodes = {$select_categorys};
+
+    function beforeClick(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            zTree.checkNode(treeNode, !treeNode.checked, null, true);
+            return false;
+    }
+
+    function onCheck(e, treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+            nodes = zTree.getCheckedNodes(true),
+            v = "";
+            k = "";
+            for (var i=0, l=nodes.length; i<l; i++)
+             {
+                    v += nodes[i].name + ",";
+            }
+            if (v.length > 0 ) v = v.substring(0, v.length-1);
+            var cityObj = $("#citySel");
+            cityObj.attr("value", v);
+
+            for (var i=0, l=nodes.length; i<l; i++)
+             {
+                    k += nodes[i].id + ",";
+            }
+            if (k.length > 0 ) k = k.substring(0, k.length-1);
+            var cityid = $("#departments");
+            cityid.attr("value", k);
+            }
+
+    function showMenu() {
+            var cityObj = $("#citySel");
+            var cityOffset = $("#citySel").offset();
+            $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+            $("body").bind("mousedown", onBodyDown);
+    }
+    function hideMenu() {
+            $("#menuContent").fadeOut("fast");
+            $("body").unbind("mousedown", onBodyDown);
+    }
+    function onBodyDown(event) {
+            if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+                    hideMenu();
+            }
+    }
+
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);	
+		$('.js_layer_export .bg_blue').click(function(){	
+		   $('.layer_mask').fadeOut();
+		   $('.js_layer_export').fadeOut();	
+		   $('#s_export').fadeIn("slow").fadeOut(1800);	 
+           $("#explode").val(1);
+           $(".form-search").submit();				
+        });
+        $('.chaxun').click(function(){
+            //alert($(this).children('option:selected').val());
+            $('.js_search').fadeIn();
+            $("#explode").val(0);
+            $(".form-search").submit();
+        });
+
+        //自动分页
+        $('#page_size').change(function(){
+            //alert($(this).children('option:selected').val());
+            $("#explode").val(0); 
+            $(".form-search").submit();
+        });
+    });
+</SCRIPT>
+</body>
+</html>

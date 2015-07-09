@@ -1,0 +1,146 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">   
+<form class="well form-search" method="post" action="{:u('Position/category_index')}">
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon search_tit"></i>快速搜索</h3>
+        <ul class="fr">
+        <li><input class="chaxun" type="submit" value="查询"></li>
+        <li><a href="javascript:void(0)" class="search_show"><i class="fa fa-chevron-down"></i>收起</a></li>
+        </ul>
+    </div>
+    
+    <div class="s_con fl">
+    <ul>
+    <li><em>类别名称：</em><input type="text" name="name" value="{$formget.name}" class="s_btn w150" ></li>
+    </ul>
+    </div>
+</div>
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>类别列表</h3>
+        <ul class="fr">
+            <li><a href="javascript:void(0)" class="js_addcategory add_apply"><i class="icon i_add"></i>新增类别</a></li>
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>                     
+        </ul>
+    </div>
+    <div class="con_tab fl">
+
+        <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+        <thead>
+            <tr>
+              <th width="25%">类别名称</th>
+              <th width="65%">类别描述</th>
+              <th width="100">管理操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        <foreach name="categorys" item="vo">
+            <tr id="edit_{$vo.id}">
+              <td class="edit_name">{$vo.name}</td>
+              <td class="edit_description">{$vo.description}</td>
+              <td >
+                  <a href="javascript:void(0)" onClick="javascript:js_editcategory({$vo.id})">编辑</a> 
+                  <em></em>
+                  <a class="J_ajax_del" href="{:U('position/category_delete',array('id'=>$vo['id']))}">删除</a>
+              </td>
+            </tr>
+         </foreach>
+        </tbody>
+
+        </table>
+            
+    </div>
+    <div class="pagination fl">{$page}</div>
+</div>    
+</form>
+<div class="clear h20"> </div>
+<div class="layer_mask"></div>  
+<!--新增 start-->
+<form method="post" class="form-horizontal J_ajaxForm" action="{:U('position/category_add_post')}">
+<div id="layer" class="js_layer_add wplf w460">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>新增岗位类别</h3>
+<div class="iloan_box">
+<table class="iloan">
+<tr><th width="100"><i>*</i>类别名称:</th><td><input class="w260" name="name" value="" type="text" /></td></tr>
+<tr><th>类别描述:</th><td><textarea name="description" placeholder="请输入类别描述" class="w260"></textarea></td></tr>
+<tr><th>排序:</th><td><input class="w260" name="listorder" value="" type="text" /></td></tr>
+</table>
+</div>
+<div class="la_foot">
+<button type="submit" class="bg_blue">提交</button>
+<button type="button"  id='close_button'  class="bg_red i_close">关闭</button>
+</div>
+</div>
+</form> 
+<!--新增 end--> 
+
+<!--修改 start-->
+<form name="edit" method="post" class="form-horizontal J_ajaxForm" action="{:U('position/category_edit_post')}">
+<div id="layer" class="js_layer_edit wplf w460">
+<h3><a href="javascript:void(0)"><i class="icon i_close"></i></a>编辑岗位类别</h3>
+<div class="iloan_box">
+<table class="iloan"><input type="hidden" name="id" value="{$id}"/>
+<tr><th width="100"><i>*</i>类别名称:</th><td><input class="w260" name="name" value="{$name}" type="text" /></td></tr>
+<tr><th>类别描述:</th><td><textarea name="description" id="description" placeholder="请输入类别描述" class="w260"></textarea></td></tr>
+<tr><th>排序:</th><td><input class="w260" name="listorder" value="{$listorder}" type="text" /></td></tr>
+</table>
+</div>
+<div class="la_foot">
+<button type="submit" class="bg_blue">提交</button>
+<button type="button"  id='close_button'  class="bg_red i_close">关闭</button>
+</div>
+</div>
+</form> 
+<!--修改 end--> 
+
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('#page_size').change(function(){  
+        //alert($(this).children('option:selected').val()); 
+        $(".form-search").submit();
+    });
+    $(".search_show").click(function(){
+        $(this).html($(".s_con").is(":hidden") ? "<i class='fa fa-chevron-down'></i>"+"收起" : "<i class='fa fa-chevron-up'></i>"+"展开");
+        $(".s_con").slideToggle(); 
+    }); 
+});
+</script>
+<script>
+$(document).ready(function () {
+	$('.js_addcategory').click(function(){
+		$('.layer_mask').fadeIn();
+		$('.js_layer_add').fadeIn();
+	});
+	$('.js_layer_add .i_close').click(function(){
+                
+		$('.layer_mask').fadeOut();
+		$('.js_layer_add').fadeOut();
+	});
+});
+function js_editcategory(id){
+        var name = $("tr[id='edit_"+id+"'] .edit_name").text();
+        var description = $("tr[id='edit_"+id+"'] .edit_description").text(); //alert(description);
+        $("form[name='edit'] input[name='id']").val(id);
+        $("form[name='edit'] input[name='name']").val(name);
+        $('#description').val(description);
+        $('.layer_mask').fadeIn();
+        $('.js_layer_edit').fadeIn();
+		$('.js_layer_edit .i_close').click(function(){
+		$('.layer_mask').fadeOut();
+		$('.js_layer_edit').fadeOut();
+	});	
+	}
+</script>
+</body>
+</html>

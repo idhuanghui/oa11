@@ -1,0 +1,26 @@
+<admintpl file="header"/>
+<head/>
+<body class="J_scroll_fixed">
+<form class="form-horizontal J_ajaxForm" action="{:U('Rbac/roleadd_post')}" method="post" id="myform">
+<div class="rzsp_con">
+<h3>新增用户组</h3>
+<table class="iloan">
+<tr><th width="140"><i>*</i>用户组名称：</th><td><input type="text" name="name" value="" class="w260" id="rolename"></input></td></tr>
+<tr><th><i></i>用户组描述：</th><td><textarea name="remark" id="remark" class="w260"></textarea></td></tr>
+<tr><th><i></i>是否启用：</th><td><input type="radio" name="status" value="1" checked id="active_true"/>开启<input type="radio" name="status" value="0" id="active_false">禁止</td></tr>
+<tr><th>&nbsp;</th><td><button type="submit" class="bg_blue J_ajax_submit_btn">提交</button><button type="button" id='close_button' class="bg_red">返回列表</button></td></tr>
+</table>
+</div>
+</form>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#close_button').click(function(){
+            //closeapp($("#appiframe-"+"add_position", window.parent.document));
+            close_current_app();
+        });
+    });
+</script>
+</body>
+</html>

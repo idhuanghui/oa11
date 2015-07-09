@@ -1,0 +1,60 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+
+<form class="J_ajaxForm" action="{:U('Department/listorders')}" method="post">
+    
+ <div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>部门列表</h3>
+        <ul class="fr">
+            
+            <li><a href="{:U('Department/add')}" class="add_apply"><i class="icon i_add"></i>新增部门</a></li>
+            <li><a href="{:U('Department/export')}"><i class="fa fa-reply"></i>导出</a></li>
+        </ul>
+    </div>
+    <div class="con_tab fl">
+        <table width="100%" class="tab_list" id="menus-table" cellspacing="0" cellpadding="0" border="0">
+          <thead>
+            <tr>
+              <th width="14%">排序</th>
+              <th width="12%">ID</th>
+              <th width="24%" >分公司-分部-团队名称</th>
+              <th width="11%">区域经理</th>  
+              <th width="11%">城市经理</th>
+              <th width="11%" >督导</th>
+              <th width="17%">操作</th>
+            </tr>
+          </thead>
+          {$categorys}
+        </table>
+      
+    </div>
+    
+</div>
+<div class="iloan_paixu fl"><button class="bg_blue btn btn_submit btn-primary mr10 J_ajax_submit_btn" type="submit">排序</button></div>
+</form>
+<div class="clear h20"></div>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script src="__TMPL__assets/js/index_inner.js"></script>
+<script>
+
+$(document).ready(function () {
+	Wind.css('treeTable');
+    Wind.use('treeTable', function () {
+        $("#menus-table").treeTable({
+            indent: 20
+        });
+    });
+});
+
+setInterval(function () {
+    var refersh_time = getCookie('refersh_time_admin_menu_index');
+    if (refersh_time == 1) {
+    	reloadPage(window);
+    }
+}, 1000);
+setCookie('refersh_time_admin_menu_index',0);
+
+</script>
+</body>
+</html>

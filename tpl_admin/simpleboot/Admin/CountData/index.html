@@ -1,0 +1,184 @@
+<admintpl file="header"/>
+<link href="__ROOT__/statics/simpleboot/css/zTreeStyle.css" rel="stylesheet">
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/zTree/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/My97DatePicker/WdatePicker.js"></script>
+<body>
+<form class="well form-search" method="post" action="{:U('CountData/index')}">
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon search_tit"></i>快速搜索</h3>
+        <ul class="fr">
+            <li><input class="chaxun" type="submit" value="查询"></li>
+            <li><a id="exploder" href="javascript:void(0)"><i class="fa fa-reply"></i>导出<input id="explode" name="explode" type="hidden"  value="0" ></a></li>
+            <li><a href="javascript:void(0)" class="search_show"><i class="fa fa-chevron-down"></i>收起</a></li>
+        </ul>
+    </div>
+    <div class="s_con fl">
+        <ul>
+            <if condition="session('ADMIN_ID') EQ 1"></if>
+            <li><em>分部：</em>
+                <div class="btn_sel w180">
+                <input id="citySel"  type="text" name="departmentname" value="{$formget.departmentname}" class="no_border"  readonly onClick="showMenu();" ><i onClick="showMenu();"></i>  
+                </div> 
+                <input id="departments" name="departmentid"  type="hidden"  value="{$formget.departmentid}" >
+                <div id="menuContent" class="menuContent">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </li>
+            
+            <li><em>员工：</em>
+                    <input type="text" class="s_btn w100" name="user_realname" value="{$formget.user_realname}" />
+                    <input type="hidden" class="s_btn w100" name="user_id" value="{$formget.user_id}" />
+            </li>
+            <li><em>开始日期：</em><input class="s_btn w100 " type="text" name="begindate" onclick="WdatePicker()" value="{$formget.begindate}" /></li>
+            <li><em>结束日期：</em><input class="s_btn w100 " type="text" name="enddate" onclick="WdatePicker()" value="{$formget.enddate}" /></li>
+        </ul>
+    </div>
+</div>
+<div class="Search">
+    <div class="tit">
+        <h3><i class="icon tab_tit"></i>数据统计</h3>
+        <ul class="fr">
+            <li>
+                <select name="page_size" id="page_size" class="w50 pag_bar">
+                    <option value="10" <php>echo $formget['page_size']==10?"selected":""</php> >10</option>
+                    <option value="20" <php>echo $formget['page_size']==20?"selected":""</php> >20</option>
+                    <option value="50" <php>echo $formget['page_size']==50?"selected":""</php> >50</option>
+                    <option value="100" <php>echo $formget['page_size']==100?"selected":""</php> >100</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <div class="con_tab fl">
+            <table class="tab_list" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                <tr>
+                    <th class="t_center" width="15%">查询日期</th>
+                    <th width="10%">员工姓名</th>
+                    <th width="10%">二级分部</th>
+                    <th width="10%">所属部门</th>
+                    
+                    <th width="10%">总提现人数</th>
+                    <th width="10%">总提现次数</th>
+                    <th width="10%">总提现金额</th>
+                    <th width="10%">用户余额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="sales" item="vo">
+                    <tr>
+                        <td class="t_center">{$vo.query_date}</td>
+                        <td>{$vo.user_realname}</td>
+                        <td>{$vo.city_department}</td>
+                        <td>{$vo.department_name}</td>
+                        
+                        <td>{$vo['total_withdraw_num']}</td>
+                        <td>{$vo.total_withdraw_times}</td>
+                        <td>{$vo['total_withdraw_amount']}</td>
+                        <td>{$vo.total_balance}</td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+    </div>
+    <div class="pagination fl">
+        {$page}
+    </div>
+</div>
+</form>
+</body>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //导出
+        $('#exploder').click(function(){
+            $("#explode").val(1);
+            $(".form-search").submit();
+            $("#explode").val(0);
+        });
+        //自动分页
+        $('#page_size').change(function(){
+            //alert($(this).children('option:selected').val());
+            $(".form-search").submit();
+        });
+    });
+
+    $(".search_show").click(function(){
+        $(this).html($(".s_con").is(":hidden") ? "<i class='fa fa-chevron-down'></i>"+"收起" : "<i class='fa fa-chevron-up'></i>"+"展开");
+        $(".s_con").slideToggle();
+    });
+</script>
+<SCRIPT type="text/javascript">
+
+    var setting = {
+        check: {
+            enable: true
+        },
+        view: {
+            dblClickExpand: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            beforeClick: beforeClick,
+            onCheck: onCheck
+        }
+    };
+
+    var zNodes = {$select_categorys};
+
+    function beforeClick(treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        zTree.checkNode(treeNode, !treeNode.checked, null, true);
+        return false;
+    }
+
+    function onCheck(e, treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+                nodes = zTree.getCheckedNodes(true),
+                v = "";
+        k = "";
+        for (var i=0, l=nodes.length; i<l; i++)
+        {
+            v += nodes[i].name + ",";
+        }
+        if (v.length > 0 ) v = v.substring(0, v.length-1);
+        var cityObj = $("#citySel");
+        cityObj.attr("value", v);
+
+        for (var i=0, l=nodes.length; i<l; i++)
+        {
+            k += nodes[i].id + ",";
+        }
+        if (k.length > 0 ) k = k.substring(0, k.length-1);
+        var cityid = $("#departments");
+        cityid.attr("value", k);
+    }
+
+    function showMenu() {
+        var cityObj = $("#citySel");
+        var cityOffset = $("#citySel").offset();
+        $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+
+        $("body").bind("mousedown", onBodyDown);
+    }
+    function hideMenu() {
+        $("#menuContent").fadeOut("fast");
+        $("body").unbind("mousedown", onBodyDown);
+    }
+    function onBodyDown(event) {
+        if (!(event.target.id == "menuBtn" || event.target.id == "citySel" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+            hideMenu();
+        }
+    }
+
+
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    });
+</SCRIPT>
+</html>
